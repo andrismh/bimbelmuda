@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../assets/img/background.jpg");
+  background-size: cover;
+}
+
+header > div {
+  display: inline-flex;
+  color: rgb(255, 255, 255);
+  margin-inline: 1rem;
+  border-radius: 10px;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+  padding-inline: 1rem;
+  margin-inline: 2rem;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  padding: 2rem;
+}
+
+div.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-inline: 4rem;
+}
+
+div.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  background-color:rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-inline: 5rem;
+  padding: 3rem;
+  line-height: 2rem;
+}
+
+div#resume > h2 {
+  color: rgb(255, 255, 255);
+}
+
+div#resume > section {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(255, 255, 253, 0.815);
+  border-radius: 10px;
+}
+
+nav {
+  justify-content: center;
+}
+
+nav > div {
+  background-color: rgba(255, 255, 255, 0.038);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding: 0px;
+}
+
+li {
+  margin: 1rem;
+}
+
+footer > div {
+  justify-content: center;
+  background-color: gainsboro;
+  padding: 0.5rem;
+}
+
+@font-face {
+  font-family: 'Mildstones';
+  src: url('../assets/fonts/mildstones.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
