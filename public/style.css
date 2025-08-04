@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+nav ul {
+  display: flex;
+  gap: 5rem;
+  margin-inline: 20pt;
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -26,27 +32,29 @@ header > div {
 
 h1 {
   font-size: 3rem;
+  color: rgb(255, 255, 255);
 }
 
 main {
   display: flex;
   flex: 1;
   padding: 2rem;
+  justify-content: center;
 }
 
 div.container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-inline: 4rem;
+  margin-inline: 20%;
 }
 
 div.item {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: rgb(255, 255, 255);
-  background-color:rgba(0, 0, 0, 0.3);
+  color: rgb(36, 31, 31);
+  background-color: rgba(240, 255, 255, 0.626);
   border-radius: 10px;
   margin-inline: 5rem;
   padding: 3rem;
@@ -89,7 +97,7 @@ footer > div {
 
 @font-face {
   font-family: 'Mildstones';
-  src: url('../assets/fonts/mildstones.otf') format('opentype');
+  src: url('/assets/fonts/mildstones.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
