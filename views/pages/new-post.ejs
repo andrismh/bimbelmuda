@@ -1,5 +1,18 @@
 <form method="POST">
-  <input name="title" placeholder="Post Title" required /><br />
-  <textarea name="content" placeholder="Content" rows="10" cols="50"></textarea><br />
+  <div>
+    <label for="title">Title</label>
+    <input id="title" class="form-control" name="title" placeholder="Post Title" required /><br />
+  </div>
+
+  <div>
+    <label for="content">Content</label>
+    <textarea id="content" class="form-control" name="content" placeholder="Content" rows="10" required></textarea><br />
+  </div>
+
+  <div>
+    <label for="slug">slug</label>
+    <input id="slug" class="form-control" name="slug" placeholder="slug">
+  </div>
+
   <button type="submit">Submit</button>
 </form>
