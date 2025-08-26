@@ -6,11 +6,11 @@ import {
     deletePost
 } from '../controllers/dbController';
 
-const router = Router();
+const dbRouter = Router();
 
-router.post("/", createPost);
-router.get("/", getPosts);
-router.put("/:id", updatePost);
-router.delete("/:id", deletePost);
+dbRouter.post("/", createPost);
+dbRouter.get("/", getPosts);
+dbRouter.put("/:id", updatePost);
+dbRouter.delete("/:id", deletePost);
 
-export default router;
+export default dbRouter;

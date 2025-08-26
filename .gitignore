@@ -25,3 +25,5 @@ package-lock.json
 yarn.lock
 
 index_test.html
+
+public/assets

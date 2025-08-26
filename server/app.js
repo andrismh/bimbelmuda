@@ -2,6 +2,9 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import expressLayout from "express-ejs-layouts";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import dbRouter from "./routes/dbRoute";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,18 +16,20 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname, "../", "public")));
 
 // Set the express layout
-app.use(expressLayout)
-app.set('layout', path.join(path.dirname(__dirname), "views/layouts/main"))
+app.use(expressLayout);
+app.set('layout', path.join(path.dirname(__dirname), "views/layouts/main"));
 
 // Set the ejs engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(path.dirname(__dirname), "views"));
 
+app.use('/api/posts', dbRouter);
+
 app.get('/', (req, res) => {
   res.render('pages/index', {
     title: "Bimbel Muda!"
-  })
-})
+  });
+});
 
 // Start the Express server
 app.listen(PORT, () => {
