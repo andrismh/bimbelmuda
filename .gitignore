@@ -19,7 +19,6 @@ Thumbs.db
 # Build artifacts (if you use a build tool later)
 dist/
 build/
-public/
 
 # Optional: lock files (if you only want one package manager)
 package-lock.json
