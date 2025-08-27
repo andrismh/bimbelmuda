@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 import { config } from "dotenv";
 
-let db;
+config();
+const mongoURI = process.env.MONGODB_URI;
 
 async function connectDB() {
     if (db) return db;
 
     try {
-        db = await mongoose.connect(process.env.MONGODB_URI, {
+        db = await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
