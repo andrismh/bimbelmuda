@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import connectDB from '../config/db';
+import connectDB from '../config/db.js';
 
 async function getCollection() {
     const db = await connectDB();
@@ -8,6 +8,11 @@ async function getCollection() {
 
 // Create One Document
 export const createPost = async(req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+    
     try {
         const posts = await getCollection();
         const result = await posts.insertOne(req.body);

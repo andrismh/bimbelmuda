@@ -4,7 +4,7 @@ import {
     getPosts,
     updatePost,
     deletePost
-} from '../controllers/dbController';
+} from '../controllers/dbController.js';
 
 const dbRouter = Router();
 

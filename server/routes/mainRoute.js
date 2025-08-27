@@ -1,15 +1,15 @@
 // routes/index.js
 import { Router } from 'express';
-const router = Router();
-import { getHomePage, getAboutPage, getContactPage } from '../controllers/indexController';
+const mainRouter = Router();
+import { getHomePage, getAboutPage, getProjectsPage } from '../controllers/mainController.js';
 
 // GET / - Home page (SSG-like)
-router.get('/', getHomePage);
+mainRouter.get('/', getHomePage);
 
 // GET /about - About page (SSG-like)
-router.get('/about', getAboutPage);
+mainRouter.get('/about', getAboutPage);
 
 // GET /contact - Contact page (SSG-like)
-router.get('/contact', getContactPage);
+mainRouter.get('/contact', getProjectsPage);
 
-export default router;
+export default mainRouter;
