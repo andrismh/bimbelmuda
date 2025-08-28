@@ -1,5 +1,5 @@
-import { ObjectId } from 'mongodb';
-import connectDB from '../config/db.js';
+import { validationResult } from 'express-validator';
+import Post from '../config/post.js';
 
 async function getCollection() {
     const db = await connectDB();
@@ -7,55 +7,53 @@ async function getCollection() {
 };
 
 // Create One Document
-export const createPost = async(req, res) => {
+export const createPost = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() })
     }
     
     try {
-        const posts = await getCollection();
-        const result = await posts.insertOne(req.body);
-        res.json(result);
+        const newPost = await Post.create(req.body);
+        res.status(201).json(newPost);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        next(err);
     }
 };
 
 // Read Document
-export const getPosts = async(req, res) => {
+export const getPosts = async (req, res, next) => {
     try {
-        const posts = await getCollection();
-        const post = await posts.findOne({ _id: new ObjectId(req.params.id) });
-        res.json(post);
+        if (req.params.id) {
+            const post = await Post.findById(req.params.id);
+            if (!post) return res.status(404).json({ message: 'Not found' });
+            return res.json(post)
+        }
+        const posts = await Post.find().sort({ createdAt: -1 });
+        res.json(posts);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        next(err);
     }
 };
 
 // Update Document
-export const updatePost = async(req, res) => {
+export const updatePost = async (req, res, next) => {
     try {
-        const posts = await getCollection();
-        const result = await posts.updateOne(
-            { _id: new ObjectId(req.params.id) },
-            { $set: req.body }
-        );
-        res.json(result);
+        const updated = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!updated) return res.status(404).json({ message: 'Not found' });
+        res.json(updated);
     } catch (err) {
-        res.status(500).json({error: err.message});
+        next(err);
     }
 };
 
 // Delete Document
-export const deletePost = async(req, res) => {
+export const deletePost = async (req, res, next) => {
     try {
-        const posts = await getCollection();
-        const result = await posts.deleteOne(
-            { _id: new ObjectId(req.params.id) }
-        );
-        res.json(result)
+        const deleted = await Post.findByIdAndDelete(req.params.id);
+        if (!deleted) return res.status(404).json({ message: 'Not found' });
+        res.json({ message: 'Post deleted', post: deleted });
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        next(err);
     }
 };
