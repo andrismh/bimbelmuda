@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'Mildstones';
-  src: url('assets/fonts/mildstones.otf') format('opentype');
+  font-family: "Mildstones";
+  src: url("assets/fonts/mildstones.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'EduNSW';
-  src: url('assets/fonts/EduNSW/EduNSW.ttf') format('truetype');
+  font-family: "EduNSW";
+  src: url("assets/fonts/EduNSW/EduNSW.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -32,7 +32,7 @@ nav ul {
 }
 
 nav a {
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
@@ -58,7 +58,7 @@ header > div {
 h1 {
   font-size: 3rem;
   color: rgb(0, 0, 0);
-  font-family:'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 main {
@@ -72,7 +72,7 @@ div.container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-inline: 10%;
+  background-color: bisque;
 }
 
 div.item {
@@ -85,6 +85,59 @@ div.item {
   margin-inline: 5rem;
   padding: 3rem;
   line-height: 2rem;
+}
+
+div.posts {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgb(42, 42, 97);
+  border-radius: 15px;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+div.post {
+  background-color: rgb(91, 245, 237);
+  display: flex;
+  flex-wrap: wrap;
+  width: 15rem;
+  height: 15rem;
+  justify-content: center;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+div.text-input {
+  background-color: aquamarine;
+  width: 100%;
+  height: 100%;
+  margin: 2rem;
+  align-self: center;
+}
+
+input.input-field {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+div.submit-button {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+button#submitPost {
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
 }
 
 div#resume > h2 {
@@ -120,4 +173,3 @@ footer > div {
   background-color: gainsboro;
   padding: 0.5rem;
 }
-

@@ -24,4 +24,6 @@ build/
 package-lock.json
 yarn.lock
 
-index_test.html
+# Public fonts and img
+public/fonts
+public/img
