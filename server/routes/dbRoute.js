@@ -8,9 +8,9 @@ import {
 
 const dbRouter = Router();
 
-dbRouter.post("/", createPost);
-dbRouter.get("/", getPosts);
-dbRouter.put("/:id", updatePost);
-dbRouter.delete("/:id", deletePost);
+dbRouter.post("/api/posts", createPost);
+dbRouter.get("/api/get", getPosts);
+dbRouter.put("/api/put/:id", updatePost);
+dbRouter.delete("/api/delete/:id", deletePost);
 
 export default dbRouter;
