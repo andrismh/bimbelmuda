@@ -21,19 +21,19 @@ app.use(express.urlencoded({ extended: true })); // For Application data
 
 // Set the express layout
 app.use(expressLayout);
-app.set('layout', path.join(path.dirname(__dirname), "views/layouts/main"));
+app.set("layout", path.join(path.dirname(__dirname), "views/layouts/main"));
 
 // Set the ejs engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(path.dirname(__dirname), "views"));
+app.set("view engine", "ejs");
+app.set("views", path.join(path.dirname(__dirname), "views"));
 
 // Set the Route
-app.use('/api/posts', dbRouter);
-app.use('/', mainRouter);
+app.use("/", dbRouter);
+app.use("/", mainRouter);
 
-app.get('/', (req, res) => {
-  res.render('pages/index', {
-    title: "Bimbel Muda!"
+app.get("/", (req, res) => {
+  res.render("pages/index", {
+    title: "Bimbel Muda!",
   });
 });
 
