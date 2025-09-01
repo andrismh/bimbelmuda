@@ -1,7 +1,6 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import expressLayout from "express-ejs-layouts";
 import dbRouter from "./routes/dbRoute.js";
 import mainRouter from "./routes/mainRoute.js";
 import { connect } from "./config/db.js"; // <-- use your connect helper
@@ -25,20 +24,9 @@ app.use(express.static(path.join(__dirname, "../", "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// view engine
-app.use(expressLayout);
-app.set("layout", path.join(path.dirname(__dirname), "views/layouts/main"));
-app.set("view engine", "ejs");
-app.set("views", path.join(path.dirname(__dirname), "views"));
-
 // routes
 app.use("/", dbRouter);
 app.use("/", mainRouter);
-
-// (Optional) keep this only if mainRouter doesn't already serve "/"
-app.get("/", (req, res) => {
-  res.render("pages/index", { title: "Bimbel Muda!" });
-});
 
 // centralized error handler (must be last before listen)
 app.use((err, req, res, next) => {
