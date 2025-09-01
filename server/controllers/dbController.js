@@ -4,13 +4,17 @@ import mongoose from "mongoose";
 
 // helper: pick only allowed keys
 const pick = (obj, fields) =>
-  fields.reduce((acc, f) => (obj[f] !== undefined ? (acc[f] = obj[f], acc) : acc), {});
+  fields.reduce(
+    (acc, f) => (obj[f] !== undefined ? ((acc[f] = obj[f]), acc) : acc),
+    {}
+  );
 
 // Create
 export const createPost = async (req, res, next) => {
   try {
     const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+    if (!errors.isEmpty())
+      return res.status(400).json({ errors: errors.array() });
 
     const data = pick(req.body, ["title", "content"]);
     const newPost = await Post.create(data);
@@ -35,12 +39,15 @@ export const getPosts = async (req, res, next) => {
     }
 
     const page = Math.max(parseInt(req.query.page || "1", 10), 1);
-    const limit = Math.min(Math.max(parseInt(req.query.limit || "10", 10), 1), 100);
+    const limit = Math.min(
+      Math.max(parseInt(req.query.limit || "10", 10), 1),
+      100
+    );
     const skip = (page - 1) * limit;
 
     const [items, total] = await Promise.all([
       Post.find().sort({ createdAt: -1 }).skip(skip).limit(limit).lean(),
-      Post.countDocuments()
+      Post.countDocuments(),
     ]);
 
     res.json({

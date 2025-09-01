@@ -20,7 +20,7 @@ export async function connect() {
       return mongoose;
     }
 
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URI, { dbName: "bimbel-muda-blogs" });
     isConnected = true;
     console.log("✅ MongoDB Connected");
     return mongoose;
