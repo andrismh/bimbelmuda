@@ -1,20 +1,20 @@
 @font-face {
   font-family: "Mildstones";
-  src: url("assets/fonts/mildstones.otf") format("opentype");
+  src: url("../assets/fonts/mildstones.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "EduNSW";
-  src: url("assets/fonts/EduNSW/EduNSW.ttf") format("truetype");
+  src: url("../assets/fonts/EduNSW/EduNSW.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -40,7 +40,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url("assets/img/3433812.webp");
+  background-image: url("../assets/img/3433812.webp");
   background-size: cover;
 }
 
