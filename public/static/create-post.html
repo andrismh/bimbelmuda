@@ -13,20 +13,11 @@
 
   <body>
     <!-- NAV STARTS HERE! -->
-    <nav id="navbar" class="d-flex flex-row">
-      <div>
-        <ul class="d-flex flex-row list-unstyled mb-1">
-          <li>
-            <a href="/projects">Projects</a>
-          </li>
-          <li>
-            <a href="/writings">Writings</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-        </ul>
-      </div>
+    <nav id="navbar" class="navMenu">
+      <a href="/projects">Projects</a>
+      <a href="/writings">Writings</a>
+      <a href="/about">About</a>
+      <div class="dot"></div>
     </nav>
 
     <!-- PAGE CONTENT STARTS HERE! -->
@@ -78,35 +69,6 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
-    <script>
-      document
-        .getElementById("postForm")
-        .addEventListener("submit", async (e) => {
-          e.preventDefault(); // prevent form reload
-
-          const title = document.getElementById("blogTitle").value;
-          const content = document.getElementById("blogContent").value;
-
-          try {
-            const response = await fetch("/api/posts", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ title, content }),
-            });
-
-            if (!response.ok) {
-              throw new Error("Server returned " + response.status);
-            }
-
-            const data = await response.json();
-            console.log("Server response:", data);
-
-            alert("Post submitted successfully!");
-          } catch (err) {
-            console.error("Error submitting post:", err);
-            alert("Failed to submit post.");
-          }
-        });
-    </script>
+    <script src="/js/index.js"></script>
   </body>
 </html>

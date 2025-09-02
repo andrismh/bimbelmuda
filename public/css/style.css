@@ -24,19 +24,40 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-nav ul {
-  display: flex;
-  gap: 5rem;
-  margin-inline: 20pt;
+.navMenu {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 a {
-  color: rgb(0, 0, 0);
   text-decoration: none;
+  color: #000000;
 }
+
+.navMenu a {
+  color: #000000;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  gap: 50px;
+  margin-inline: 50px;
+}
+
+.navMenu a:hover {
+  color: #4bb3f8;
+}
+
 
 body {
   min-height: 100vh;
@@ -99,6 +120,7 @@ div.grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
   gap: 2rem;
+  margin-top: 4rem;
 }
 
 a#create-post-button > h5 {

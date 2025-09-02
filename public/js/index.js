@@ -1,6 +1,4 @@
 // /public/js/home.js
-console.log("[home] script start", { origin: location.origin });
-
 (async function () {
   try {
     const container = document.getElementById("post-container");
@@ -31,3 +29,32 @@ console.log("[home] script start", { origin: location.origin });
     console.error("[home] load error:", e);
   }
 })();
+
+document
+  .getElementById("postForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault(); // prevent form reload
+
+    const title = document.getElementById("blogTitle").value;
+    const content = document.getElementById("blogContent").value;
+
+    try {
+      const response = await fetch("/api/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, content }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Server returned " + response.status);
+      }
+
+      const data = await response.json();
+      console.log("Server response:", data);
+
+      alert("Post submitted successfully!");
+    } catch (err) {
+      console.error("Error submitting post:", err);
+      alert("Failed to submit post.");
+    }
+  });

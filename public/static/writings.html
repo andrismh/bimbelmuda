@@ -13,20 +13,11 @@
 
   <body>
     <!-- NAV STARTS HERE! -->
-    <nav id="navbar" class="d-flex flex-row">
-      <div>
-        <ul class="d-flex flex-row list-unstyled mb-1">
-          <li>
-            <a href="/projects">Projects</a>
-          </li>
-          <li>
-            <a href="/writings">Writings</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-        </ul>
-      </div>
+    <nav id="navbar" class="navMenu">
+      <a href="/projects">Projects</a>
+      <a href="/writings">Writings</a>
+      <a href="/about">About</a>
+      <div class="dot"></div>
     </nav>
 
     <!-- PAGE CONTENT STARTS HERE! -->
@@ -42,13 +33,13 @@
     <!-- THIS IS MAIN -->
     <main>
       <div class="container">
-        <div>
-          <!-- Create Post -->
-          <a href="/createPost" class="button" id="create-post-button">
+        <div class="button create-post-button">
+          <a href="/createPost" id="create-post-button">
             <h5>+ Create Post</h5>
           </a>
         </div>
-        <div class="grid-container" id="post-container"></div>
+        <div class="grid-container" id="post-container">
+        </div>
       </div>
     </main>
 
