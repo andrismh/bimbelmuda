@@ -42,19 +42,27 @@
     <!-- THIS IS MAIN -->
     <main>
       <div class="container content-container">
-        <div class="title-input">
-          <input
-            type="text"
-            placeholder="title goes here..."
-            class="title-field" id="blogTitle"
-          />
-        </div>
-        <div class="content-input">
-          <input type="text" placeholder="write here..." class="input-field" id="blogContent" />
-        </div>
-        <div class="submit-button">
-          <button type="submit" id="postForm">Submit Post</button>
-        </div>
+        <form id="postForm">
+          <div class="title-input">
+            <input
+              type="text"
+              placeholder="title goes here..."
+              class="title-field"
+              id="blogTitle"
+            />
+          </div>
+          <div class="content-input">
+            <input
+              type="text"
+              placeholder="write here..."
+              class="input-field"
+              id="blogContent"
+            />
+          </div>
+          <div class="submit-button">
+            <button type="submit" id="submit-button">Submit Post</button>
+          </div>
+        </form>
       </div>
     </main>
 
@@ -70,6 +78,35 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/index.js"></script>
+    <script>
+      document
+        .getElementById("postForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault(); // prevent form reload
+
+          const title = document.getElementById("blogTitle").value;
+          const content = document.getElementById("blogContent").value;
+
+          try {
+            const response = await fetch("/api/posts", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ title, content }),
+            });
+
+            if (!response.ok) {
+              throw new Error("Server returned " + response.status);
+            }
+
+            const data = await response.json();
+            console.log("Server response:", data);
+
+            alert("Post submitted successfully!");
+          } catch (err) {
+            console.error("Error submitting post:", err);
+            alert("Failed to submit post.");
+          }
+        });
+    </script>
   </body>
 </html>

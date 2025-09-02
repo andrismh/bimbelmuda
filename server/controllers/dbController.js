@@ -75,3 +75,16 @@ export const deletePost = async (req, res, next) => {
     next(err);
   }
 };
+
+// GET /api/titles
+export async function getPostTitles(req, res, next) {
+  try {
+    // only fetch _id and title
+    const posts = await Post.find({}, { _id: 0, title: 1, content: 1 }).lean();
+
+    // return as JSON array
+    res.json(posts);
+  } catch (err) {
+    next(err);
+  }
+}

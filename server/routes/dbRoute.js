@@ -3,8 +3,9 @@ import { body } from "express-validator";
 import {
   createPost,
   getPosts,
+  getPostTitles,
   updatePost,
-  deletePost
+  deletePost,
 } from "../controllers/dbController.js";
 
 const dbRouter = Router();
@@ -12,7 +13,11 @@ const dbRouter = Router();
 // validators
 const createValidators = [
   body("title").isString().trim().notEmpty().withMessage("title is required"),
-  body("content").isString().trim().notEmpty().withMessage("content is required"),
+  body("content")
+    .isString()
+    .trim()
+    .notEmpty()
+    .withMessage("content is required"),
 ];
 
 const updateValidators = [
@@ -24,6 +29,7 @@ const updateValidators = [
 dbRouter.post("/api/posts", createValidators, createPost);
 dbRouter.get("/api/posts", getPosts);
 dbRouter.get("/api/posts/:id", getPosts);
+dbRouter.get("/api/titles", getPostTitles);
 dbRouter.patch("/api/posts/:id", updateValidators, updatePost); // or .put(...)
 dbRouter.delete("/api/posts/:id", deletePost);
 

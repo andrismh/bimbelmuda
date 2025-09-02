@@ -101,6 +101,16 @@ div.grid-container {
   gap: 2rem;
 }
 
+a#create-post-button > h5 {
+  display: inline;
+  background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+  border-radius: 2rem;
+  box-shadow: inset -2px 2px hsl(0 0 100% / 1),
+    -20px 20px 40px hsl(0 0 0 / 0.25);
+  padding: 1rem;
+  padding-right: 1.5rem;
+}
+
 div.card {
   --grad: red, blue;
   padding: 2.5rem;
