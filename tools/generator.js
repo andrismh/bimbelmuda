@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import ejs from "ejs";
-import Post from "./models/Post.js";
+import Post from "../server/config/post.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,14 +17,14 @@ export default async function generateStaticPosts() {
   const template = fs.readFileSync(templatePath, "utf-8");
 
   // Ensure public folder exists
-  const outputDir = path.join(__dirname, "public/writings");
+  const outputDir = path.join(__dirname, "../public/static/writings");
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
 
   // Generate one .html file per post
   for (const post of posts) {
     const html = ejs.render(template, { post }); // Render HTML with post data
     const filePath = path.join(outputDir, `${post.slug}.html`);
-    fs.writeFileSync(filePath, html);            // Save HTML file
+    fs.writeFileSync(filePath, html); // Save HTML file
   }
 
   console.log("✅ Static HTML files generated successfully.");

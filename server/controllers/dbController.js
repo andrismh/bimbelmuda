@@ -27,36 +27,13 @@ export const createPost = async (req, res, next) => {
 // Read (list or one)
 export const getPosts = async (req, res, next) => {
   try {
-    const { id } = req.params;
-
-    if (id) {
-      if (!mongoose.isValidObjectId(id)) {
-        return res.status(400).json({ message: "Invalid id" });
-      }
-      const post = await Post.findById(id).lean();
-      if (!post) return res.status(404).json({ message: "Not found" });
+    if (req.params.id) {
+      const post = await Post.findById(req.params.id);
       return res.json(post);
     }
 
-    const page = Math.max(parseInt(req.query.page || "1", 10), 1);
-    const limit = Math.min(
-      Math.max(parseInt(req.query.limit || "10", 10), 1),
-      100
-    );
-    const skip = (page - 1) * limit;
-
-    const [items, total] = await Promise.all([
-      Post.find().sort({ createdAt: -1 }).skip(skip).limit(limit).lean(),
-      Post.countDocuments(),
-    ]);
-
-    res.json({
-      items,
-      page,
-      limit,
-      total,
-      totalPages: Math.ceil(total / limit),
-    });
+    const posts = await Post.find();
+    res.json(posts);
   } catch (err) {
     next(err);
   }

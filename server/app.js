@@ -27,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use("/", dbRouter);
 app.use("/", mainRouter);
+app.get("/api/ping", (req, res) => res.send("pong"));
 
 // centralized error handler (must be last before listen)
 app.use((err, req, res, next) => {
