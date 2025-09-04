@@ -1,11 +1,24 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import express from "express";
+import expressLayout from "express-ejs-layouts";
 import ejs from "ejs";
 import Post from "../server/config/post.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const app = express();
+
+// view engine to implement ejs
+app.use(expressLayout);
+app.use(
+  "layout",
+  path.join(path.dirname(__dirname), "../", "views/layout/main")
+);
+app.set("view engine", "ejs");
+app.set("views", path.join(path.dirname(__dirname), "../", "views"));
 
 // Exported function that does the static generation
 export default async function generateStaticPosts() {
