@@ -1,8 +1,15 @@
 import path from "path";
 import { fileURLToPath } from "url";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import fs from "fs/promises";
+import ejs from "ejs";
+import Post from "../config/post";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const ROOT = process.cwd();
+const VIEWS = path.join(ROOT, "views");
+const OUT_DIR = path.join(ROOT, "public/writings");
+
+export const generateAllPages = async (req, res) => {
+    const posts = await Post.find().lean();
+    const buildHtml = await ejs.renderFile()
+    return res.json(posts);
+};
