@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -7,11 +8,16 @@ import { connect } from "./config/db.js"; // <-- use your connect helper
 import morgan from "morgan";
 import helmet from "helmet";
 
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+console.log("Loaded MONGODB_URI:", process.env.MONGODB_URI ? "✅ present" : "❌ missing");
+
 
 // security & logs (optional but recommended)
 app.use(helmet());

@@ -1,14 +1,5 @@
 // server/config/db.js
 import mongoose from "mongoose";
-import { config } from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
-
-// Load .env (adjust path if your .env isn't next to this file)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-config({ path: path.join(__dirname, "..", "..", ".env") });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -20,7 +11,11 @@ export async function connect() {
       return mongoose;
     }
 
-    await mongoose.connect(MONGODB_URI, { dbName: "bimbel-muda-blogs" });
+    await mongoose.connect(MONGODB_URI, { 
+      dbName: "bimbel-muda-blogs",
+      serverSelectionTimeoutMS: 10000,
+      family: 4
+     });
     isConnected = true;
     console.log("✅ MongoDB Connected");
     return mongoose;
@@ -29,5 +24,8 @@ export async function connect() {
     throw err;
   }
 }
+// server/config/db.js
+console.log("MONGODB_URI present?", !!process.env.MONGODB_URI);
+
 
 export default mongoose;
