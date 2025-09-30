@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .post-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .post-title {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .post-content {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <a href="/generated/index.html" class="back-link">← Back to All Posts</a>
+        
+        <h1 class="post-title"><%= title %></h1>
+        
+        <div class="post-content">
+            <%= content %>
+        </div>
+        
+        <div class="post-meta">
+            <p><strong>Created:</strong> <%= new Date(createdAt).toLocaleDateString() %></p>
+            <p><strong>Last Updated:</strong> <%= new Date(updatedAt).toLocaleDateString() %></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,20 +4,16 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dbRouter from "./routes/dbRoute.js";
 import mainRouter from "./routes/mainRoute.js";
+import generatorRouter from "./routes/generatorRoute.js";
 import { connect } from "./config/db.js"; // <-- use your connect helper
 import morgan from "morgan";
 import helmet from "helmet";
-
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-console.log("Loaded MONGODB_URI:", process.env.MONGODB_URI ? "✅ present" : "❌ missing");
-
 
 // security & logs (optional but recommended)
 app.use(helmet());
@@ -33,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use("/", dbRouter);
 app.use("/", mainRouter);
+app.use("/", generatorRouter);
 app.get("/api/ping", (req, res) => res.send("pong"));
 
 // centralized error handler (must be last before listen)

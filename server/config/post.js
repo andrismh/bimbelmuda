@@ -1,5 +1,4 @@
-// post.js
-import mongoose from "mongoose"; // or import the same mongoose instance you use to connect
+import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema(
   {

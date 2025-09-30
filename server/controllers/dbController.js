@@ -3,11 +3,15 @@ import Post from "../config/post.js";
 import mongoose from "mongoose";
 
 // helper: pick only allowed keys
-const pick = (obj, fields) =>
-  fields.reduce(
-    (acc, f) => (obj[f] !== undefined ? ((acc[f] = obj[f]), acc) : acc),
-    {}
-  );
+const pick = (obj, fields) => {
+  const result = {};
+  for (const field of fields) {
+    if (obj[field] !== undefined) {
+      result[field] = obj[field];
+    }
+  }
+  return result;
+}
 
 // Create
 export const createPost = async (req, res, next) => {

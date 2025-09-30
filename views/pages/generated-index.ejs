@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || 'All Posts' %></title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .post-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .post-card:hover {
+            transform: translateY(-2px);
+        }
+        .post-title {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .post-title a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .post-title a:hover {
+            text-decoration: underline;
+        }
+        .post-excerpt {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .post-meta {
+            color: #999;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .stats {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .no-posts {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><%= title || 'All Posts' %></h1>
+        <p>Generated on <%= new Date().toLocaleDateString() %></p>
+    </div>
+
+    <% if (posts && posts.length > 0) { %>
+        <div class="posts-grid">
+            <% posts.forEach(function(post) { %>
+                <div class="post-card">
+                    <h3 class="post-title">
+                        <a href="post-<%= post._id %>.html"><%= post.title %></a>
+                    </h3>
+                    <div class="post-excerpt">
+                        <%= post.content.length > 150 ? post.content.substring(0, 150) + '...' : post.content %>
+                    </div>
+                    <div class="post-meta">
+                        <p>Created: <%= new Date(post.createdAt).toLocaleDateString() %></p>
+                        <p>Updated: <%= new Date(post.updatedAt).toLocaleDateString() %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        
+        <div class="stats">
+            <p>Total Posts: <%= totalPosts || posts.length %></p>
+        </div>
+    <% } else { %>
+        <div class="no-posts">
+            <p>No posts found.</p>
+        </div>
+    <% } %>
+</body>
+</html>

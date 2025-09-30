@@ -1,4 +1,3 @@
-// server/config/db.js
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -24,8 +23,5 @@ export async function connect() {
     throw err;
   }
 }
-// server/config/db.js
-console.log("MONGODB_URI present?", !!process.env.MONGODB_URI);
-
 
 export default mongoose;
