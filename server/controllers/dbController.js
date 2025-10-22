@@ -43,7 +43,7 @@ export const getPosts = async (req, res, next) => {
   }
 };
 
-// Update
+// TODO: Review CRUD Operation = Update. Soon will be used in it's own static page.
 export const updatePost = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -64,7 +64,7 @@ export const updatePost = async (req, res, next) => {
   }
 };
 
-// Delete
+// TODO: Review CRUD Operation = Delete. Will be placed on each post static-page.
 export const deletePost = async (req, res, next) => {
   try {
     const { id } = req.params;

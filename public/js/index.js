@@ -1,4 +1,4 @@
-// /public/js/home.js
+// TODO add pagination for this script. Limit page by 9 posts per page.
 (async function () {
   try {
     const container = document.getElementById("post-container");
@@ -22,7 +22,16 @@
       const h2 = document.createElement("h2");
       h2.className = "h5 mb-0";
       h2.textContent = post.title || "(untitled)";
+      const p = document.createElement("p");
+      const previewLimit = 500;
+      p.className = "p";
+      if (post.content.length > 150) {
+        p.textContent = post.content.slice(0,150) + "..."
+      } else {
+        p.textContent = post.content || "no content yet."
+      }
       card.appendChild(h2);
+      card.appendChild(p);
       container.appendChild(card);
     });
   } catch (e) {
