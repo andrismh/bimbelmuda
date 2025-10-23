@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bimbel Muda</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- NAV STARTS HERE! -->
+    <nav id="navbar" class="navMenu">
+      <a href="/projects">Projects</a>
+      <a href="/writings">Writings</a>
+      <a href="/about">About</a>
+      <div class="dot"></div>
+    </nav>
+
+    <!-- PAGE CONTENT STARTS HERE! -->
+    <!-- THIS IS HEADER -->
+    <header>
+      <div>
+        <a href="/">
+          <h1>Bimbel Muda</h1>
+        </a>
+      </div>
+    </header>
+
+    <!-- THIS IS MAIN -->
+<main>
+  <div class="main-container">
+    <fieldset id="nominal" class="section-input">
+      <legend>Nominal SPJ</legend>
+      <label for="nominalSPJ" class="sr-only">Nominal SPJ (Rp)</label>
+      <input type="number" id="nominalSPJ" inputmode="numeric" min="0" step="1000"
+             placeholder="contoh: 2.500.000" required>
+    </fieldset>
+
+    <fieldset id="jenisbelanja" class="section-option">
+      <legend>Jenis Belanja</legend>
+      <label for="belanja" class="sr-only">Pilih jenis belanja</label>
+      <select id="belanja" class="option" required>
+        <option value="" disabled selected>Pilih jenis…</option>
+        <option value="barang">Barang</option>
+        <option value="jasa">Jasa</option>
+      </select>
+    </fieldset>
+
+    <fieldset id="jenispajak" class="section-option">
+      <legend>Jenis Pajak Penghasilan</legend>
+      <label for="pajak" class="sr-only">Pilih jenis pajak</label>
+      <select id="pajak" class="option" required>
+        <option value="" disabled selected>Pilih pajak…</option>
+        <option value="pph21">PPh Pasal 21</option>
+        <option value="pph22">PPh Pasal 22</option>
+        <option value="pph23">PPh Pasal 23</option>
+      </select>
+    </fieldset>
+
+    <button id="hitung" type="button">Hitung</button>
+    <div id="hasil" aria-live="polite"></div>
+  </div>
+</main>
+
+    <!-- THIS IS FOOTER -->
+    <footer id="footer" class="text-center">
+      <div>
+        <h6>This is freakin' footer.</h6>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>

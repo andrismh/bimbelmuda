@@ -91,6 +91,22 @@ main {
   justify-content: center;
 }
 
+html, body, main {
+  height: 100%;
+  margin: 0;
+}
+
+div.main-container {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(86, 86, 86, 0.126);
+  height: auto;
+  border-radius: 10px;
+  padding: 2rem;
+  gap: 10px;
+}
+
 div.container {
   display: flex;
   flex-direction: column;
@@ -112,6 +128,12 @@ div.item {
   margin-inline: 5rem;
   padding: 3rem;
   line-height: 2rem;
+}
+
+section.section-option {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: left;
 }
 
 div.grid-container {

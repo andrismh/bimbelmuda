@@ -10,7 +10,7 @@ export function getHomePage(req, res) {
 }
 
 export function getProjectsPage(req, res) {
-  res.sendFile("/#projects");
+  res.sendFile(path.join(__dirname, "../../public/static/projects.html"));
 }
 
 export function getWritingsPage(req, res) {
@@ -24,6 +24,11 @@ export function getCreatePostPage(req, res) {
 export function getAboutPage(req, res) {
   res.sendFile(path.join(__dirname, "../../public/static/about.html"));
 }
+
+export function taxcalculator(req, res) {
+  res.sendFile(path.join(__dirname, "../../public/static/projects/tax-calculator.html"));
+}
+
 
 // GET /api/posts?page=1&limit=9
 export async function listPosts(req, res, next) {
