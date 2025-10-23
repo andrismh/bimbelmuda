@@ -175,6 +175,11 @@ div.card:hover {
   filter: brightness(1.05);
 }
 
+#postForm {
+  display: inline-flex;
+  flex-direction: column;
+}
+
 div.title-input {
   width: 100%;
   height: auto;
@@ -188,12 +193,12 @@ input.title-field {
   border-radius: 5px;
   font-size: 16px;
   padding: 0.5rem;
-}
+} 
 
 div.content-input {
   width: 100%;
-  height: 100%;
-  margin: 0.5rem;
+  height: 20rem;
+  margin: 1rem;
   align-self: center;
 }
 
@@ -203,7 +208,7 @@ input.input-field {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  padding-left: 0.5rem;
+  padding-inline: 1rem;
 }
 
 div.submit-button {
@@ -211,7 +216,7 @@ div.submit-button {
   margin-bottom: 1rem;
 }
 
-button#postForm {
+button#submit-button {
   padding: 10px 20px;
   border: none;
   font-size: 16px;
