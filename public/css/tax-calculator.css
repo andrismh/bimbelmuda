@@ -1,0 +1,31 @@
+#nominalSPJ {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  padding: 0.5rem;
+  min-height: 30px;
+}
+
+div.hasil {
+  padding: 1rem;
+  margin-inline: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  min-height: 20px;
+}
+
+button#hitung {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  padding: 0.5rem;
+  min-height: 30px;
+  width: 10rem;
+  align-self: center;
+}
+
+section#hasilSection {
+    margin-top: 1rem;
+}
