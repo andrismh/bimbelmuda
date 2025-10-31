@@ -8,6 +8,7 @@ import {
   getCreatePostPage,
   getAboutPage,
   taxcalculator,
+  formspj
 } from "../controllers/mainController.js";
 
 mainRouter.get("/", getHomePage);
@@ -16,6 +17,7 @@ mainRouter.get("/writings", getWritingsPage);
 mainRouter.get("/createPost", getCreatePostPage);
 mainRouter.get("/about", getAboutPage);
 mainRouter.get("/projects/taxcalculator", taxcalculator);
+mainRouter.get("/projects/formspj", formspj);
 
 
 export default mainRouter;

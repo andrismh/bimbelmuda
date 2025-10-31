@@ -43,7 +43,7 @@ function updatePajakOptions() {
 document.getElementById("hitung").addEventListener("click", () => {
   const nominalValue = Number(document.getElementById("nominalSPJ").value) || 0;
 
-  const dpp = nominalValue < 2_000_000 ? nominalValue : nominalValue * 100/111;
+  const dpp = nominalValue < 2_000_000 ? nominalValue : Math.floor(nominalValue * 100/111 * 100) / 100;
   document.getElementById("dpp").textContent = dpp.toLocaleString("id-ID");
 
   const totalPPN = nominalValue < 2_000_000 ? 0 : Math.round(dpp * 0.11);

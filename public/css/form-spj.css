@@ -1,0 +1,8 @@
+fieldset#rekapSPJ {
+    display: flex;
+    flex-direction: column;
+}
+
+h4 {
+    margin: 1rem;
+}

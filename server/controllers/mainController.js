@@ -29,6 +29,10 @@ export function taxcalculator(req, res) {
   res.sendFile(path.join(__dirname, "../../public/static/projects/tax-calculator.html"));
 }
 
+export function formspj(req, res) {
+  res.sendFile(path.join(__dirname, "../../public/static/projects/form-spj.html"));
+}
+
 
 // GET /api/posts?page=1&limit=9
 export async function listPosts(req, res, next) {
