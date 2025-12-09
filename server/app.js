@@ -14,13 +14,14 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || "0.0.0.0";
 
 // security & logs (optional but recommended)
 app.use(helmet());
 app.use(morgan("dev"));
 
 // static
-app.use(express.static(path.join(__dirname, "../", "public")));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 // parsers
 app.use(express.json());
@@ -45,7 +46,7 @@ app.use((err, req, res, next) => {
 const start = async () => {
   try {
     await connect();
-    app.listen(PORT, "0.0.0.0", () => {
+    app.listen(PORT, HOST, () => {
       console.log(`Server running at http://localhost:${PORT}`);
     });
   } catch (err) {

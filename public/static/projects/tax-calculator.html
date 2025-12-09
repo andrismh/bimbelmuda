@@ -37,14 +37,21 @@
         <fieldset id="nominal" class="section-input">
           <legend>Nominal SPJ/Bend 26</legend>
           <label for="nominalSPJ" class="sr-only">Nominal SPJ (Rp)</label>
-          <input type="number" id="nominalSPJ" inputmode="numeric" min="0" step="1000"
-                placeholder="contoh: 2.500.000" required>
+          <input
+            type="number"
+            id="nominalSPJ"
+            inputmode="numeric"
+            placeholder="contoh: 2.500.000"
+            required
+          />
         </fieldset>
 
         <fieldset id="jenisBelanja" class="section-option">
           <legend>Jenis Belanja</legend>
-          <label><input type="radio" name="belanja" value="barang">Barang</label>
-          <label><input type="radio" name="belanja" value="jasa">Jasa</label>
+          <label
+            ><input type="radio" name="belanja" value="barang" />Barang</label
+          >
+          <label><input type="radio" name="belanja" value="jasa" />Jasa</label>
         </fieldset>
 
         <fieldset id="jenisPajak" class="section-option">
@@ -62,7 +69,12 @@
           <h6>Total PPh</h6>
           <div id="hasilPPh" class="hasil" aria-live="polite"></div>
           <h6>Total PPN</h6>
-          <div id="hasilPPN" class="hasil" aria-live="polite" value="totalPPN"></div>
+          <div
+            id="hasilPPN"
+            class="hasil"
+            aria-live="polite"
+            value="totalPPN"
+          ></div>
         </section>
       </div>
     </main>
