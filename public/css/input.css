@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@source "../../public/**/*.html";
+@source "../../public/js/**/*.js";
+@source "../../views/**/*.ejs";
+
+@font-face {
+  font-family: "Mildstones";
+  src: url("../assets/fonts/mildstones.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EduNSW";
+  src: url("../assets/fonts/EduNSW/EduNSW.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-edu: "EduNSW", cursive;
+  --font-mild: "Mildstones", cursive;
+}

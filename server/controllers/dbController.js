@@ -1,8 +1,8 @@
 import { validationResult } from "express-validator";
 import Post from "../config/post.js";
 import mongoose from "mongoose";
+import slugify from "slugify";
 
-// helper: pick only allowed keys
 const pick = (obj, fields) => {
   const result = {};
   for (const field of fields) {
@@ -11,16 +11,22 @@ const pick = (obj, fields) => {
     }
   }
   return result;
-}
+};
 
-// Create
+const ALLOWED_FIELDS = ["title", "content", "slug", "excerpt", "status", "tags"];
+
 export const createPost = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty())
       return res.status(400).json({ errors: errors.array() });
 
-    const data = pick(req.body, ["title", "content"]);
+    const data = pick(req.body, ALLOWED_FIELDS);
+
+    if (!data.slug && data.title) {
+      data.slug = slugify(data.title, { lower: true, strict: true });
+    }
+
     const newPost = await Post.create(data);
     res.status(201).json(newPost);
   } catch (err) {
@@ -28,11 +34,14 @@ export const createPost = async (req, res, next) => {
   }
 };
 
-// Read (list or one)
 export const getPosts = async (req, res, next) => {
   try {
     if (req.params.id) {
+      if (!mongoose.isValidObjectId(req.params.id)) {
+        return res.status(400).json({ message: "Invalid id" });
+      }
       const post = await Post.findById(req.params.id);
+      if (!post) return res.status(404).json({ message: "Not found" });
       return res.json(post);
     }
 
@@ -43,7 +52,16 @@ export const getPosts = async (req, res, next) => {
   }
 };
 
-// TODO: Review CRUD Operation = Update. Soon will be used in it's own static page.
+export const getPostBySlug = async (req, res, next) => {
+  try {
+    const post = await Post.findOne({ slug: req.params.slug });
+    if (!post) return res.status(404).json({ message: "Not found" });
+    res.json(post);
+  } catch (err) {
+    next(err);
+  }
+};
+
 export const updatePost = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -51,7 +69,12 @@ export const updatePost = async (req, res, next) => {
       return res.status(400).json({ message: "Invalid id" });
     }
 
-    const data = pick(req.body, ["title", "content"]);
+    const data = pick(req.body, ALLOWED_FIELDS);
+
+    if (data.title && !data.slug) {
+      data.slug = slugify(data.title, { lower: true, strict: true });
+    }
+
     const updated = await Post.findByIdAndUpdate(id, data, {
       new: true,
       runValidators: true,
@@ -64,7 +87,6 @@ export const updatePost = async (req, res, next) => {
   }
 };
 
-// TODO: Review CRUD Operation = Delete. Will be placed on each post static-page.
 export const deletePost = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -80,13 +102,9 @@ export const deletePost = async (req, res, next) => {
   }
 };
 
-// GET /api/titles
 export async function getPostTitles(req, res, next) {
   try {
-    // only fetch _id and title
-    const posts = await Post.find({}, { _id: 0, title: 1, content: 1 }).lean();
-
-    // return as JSON array
+    const posts = await Post.find({}, { _id: 1, title: 1, content: 1, excerpt: 1, createdAt: 1 }).lean();
     res.json(posts);
   } catch (err) {
     next(err);

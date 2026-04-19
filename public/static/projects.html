@@ -3,59 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bimbel Muda</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <title>Projects — Bimbel Muda</title>
     <link href="/css/style.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <!-- NAV STARTS HERE! -->
-    <nav id="navbar" class="navMenu">
-      <a href="/projects">Projects</a>
-      <a href="/writings">Writings</a>
-      <a href="/about">About</a>
-      <div class="dot"></div>
+  <body
+    class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/assets/img/3433812.webp')"
+  >
+    <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-10 z-10">
+      <a href="/projects" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Projects</a>
+      <a href="/writings" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Writings</a>
+      <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">About</a>
     </nav>
 
-    <!-- PAGE CONTENT STARTS HERE! -->
-    <!-- THIS IS HEADER -->
-    <header>
-      <div>
-        <a href="/">
-          <h1>Bimbel Muda</h1>
-        </a>
-      </div>
+    <header class="pt-14 px-8">
+      <a href="/" class="inline-block">
+        <h1 class="text-5xl font-poppins font-semibold text-black">Bimbel Muda</h1>
+      </a>
     </header>
 
-    <!-- THIS IS MAIN -->
-    <main>
-      <div class="main-container">
-        <ul>
-          <li>
-            <a href="/projects/taxcalculator">Kalkulator Pajak PBJ</a>
-          </li>
-          <li>
-            <a href="/projects/formspj">Form SPJ 2026</a>
-          </li>
-        </ul>
+    <main class="flex flex-1 flex-col px-8 py-6">
+      <div class="max-w-6xl mx-auto w-full">
+        <h2 class="text-2xl font-poppins font-semibold mb-6">Projects</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div class="bg-gradient-to-bl from-[#e0e4e5] to-[#f2f6f9] rounded-2xl p-8 shadow-[inset_-2px_2px_rgba(255,255,255,1),-20px_20px_40px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:shadow-[inset_-2px_2px_rgba(255,255,255,1),-30px_30px_60px_rgba(0,0,0,0.35),0_8px_20px_rgba(120,180,255,0.25)] transition-all duration-500 cursor-pointer flex flex-col gap-4">
+            <div>
+              <h3 class="text-lg font-poppins font-semibold text-[#444447]">Kalkulator Pajak PBJ</h3>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                A tax calculator for government procurement of goods and services (Pengadaan Barang dan Jasa). Computes applicable taxes based on transaction type and vendor status.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-white/60 rounded-full text-xs font-poppins text-gray-600">JavaScript</span>
+              <span class="px-2 py-1 bg-white/60 rounded-full text-xs font-poppins text-gray-600">Finance</span>
+              <span class="px-2 py-1 bg-white/60 rounded-full text-xs font-poppins text-gray-600">Taxation</span>
+            </div>
+            <a href="/projects/taxcalculator" class="mt-auto inline-block px-4 py-2 bg-black text-white text-sm rounded-full font-poppins hover:bg-gray-800 transition-colors text-center">Open Tool →</a>
+          </div>
+
+          <div class="bg-gradient-to-bl from-[#e0e4e5] to-[#f2f6f9] rounded-2xl p-8 shadow-[inset_-2px_2px_rgba(255,255,255,1),-20px_20px_40px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:shadow-[inset_-2px_2px_rgba(255,255,255,1),-30px_30px_60px_rgba(0,0,0,0.35),0_8px_20px_rgba(120,180,255,0.25)] transition-all duration-500 cursor-pointer flex flex-col gap-4">
+            <div>
+              <h3 class="text-lg font-poppins font-semibold text-[#444447]">Form SPJ 2026</h3>
+              <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+                An automated form generator for Surat Pertanggungjawaban (SPJ) documents. Simplifies the creation of accountability reports for government expenditures.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-white/60 rounded-full text-xs font-poppins text-gray-600">JavaScript</span>
+              <span class="px-2 py-1 bg-white/60 rounded-full text-xs font-poppins text-gray-600">Government</span>
+              <span class="px-2 py-1 bg-white/60 rounded-full text-xs font-poppins text-gray-600">Finance</span>
+            </div>
+            <a href="/projects/formspj" class="mt-auto inline-block px-4 py-2 bg-black text-white text-sm rounded-full font-poppins hover:bg-gray-800 transition-colors text-center">Open Tool →</a>
+          </div>
+
+        </div>
       </div>
     </main>
 
-    <!-- THIS IS FOOTER -->
-    <footer id="footer" class="text-center">
-      <div>
-        <h6>This is freakin' footer.</h6>
-      </div>
+    <footer class="bg-gray-200/80 text-center py-3 text-xs text-gray-600">
+      &copy; 2026 Bimbel Muda
     </footer>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/index.js"></script>
   </body>
 </html>

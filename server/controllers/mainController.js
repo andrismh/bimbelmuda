@@ -1,7 +1,7 @@
 import path from "path";
 import { fileURLToPath } from "url";
+import Post from "../config/post.js";
 
-// Re-create __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -15,6 +15,10 @@ export function getProjectsPage(req, res) {
 
 export function getWritingsPage(req, res) {
   res.sendFile(path.join(__dirname, "../../public/static/writings.html"));
+}
+
+export function getPostPage(req, res) {
+  res.sendFile(path.join(__dirname, "../../public/static/post.html"));
 }
 
 export function getCreatePostPage(req, res) {
@@ -33,8 +37,7 @@ export function formspj(req, res) {
   res.sendFile(path.join(__dirname, "../../public/static/projects/form-spj.html"));
 }
 
-
-// GET /api/posts?page=1&limit=9
+// GET /api/posts/paginated?page=1&limit=9
 export async function listPosts(req, res, next) {
   try {
     const page = Math.max(parseInt(req.query.page || "1", 10), 1);
@@ -42,14 +45,14 @@ export async function listPosts(req, res, next) {
     const skip = (page - 1) * limit;
 
     const filter = { status: "published" };
-    const sort = { publishedAt: -1 }; // newest first
+    const sort = { publishedAt: -1 };
 
     const [items, total] = await Promise.all([
       Post.find(filter)
         .sort(sort)
         .skip(skip)
         .limit(limit)
-        .select("_id title slug excerpt coverImageUrl publishedAt")
+        .select("_id title slug excerpt tags publishedAt createdAt")
         .lean(),
       Post.countDocuments(filter),
     ]);

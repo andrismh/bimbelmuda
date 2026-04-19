@@ -3,216 +3,123 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bimbel Muda</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <title>About — Bimbel Muda</title>
     <link href="/css/style.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <!-- NAV STARTS HERE! -->
-    <nav id="navbar" class="navMenu">
-      <a href="/projects">Projects</a>
-      <a href="/writings">Writings</a>
-      <a href="/about">About</a>
-      <div class="dot"></div>
+  <body
+    class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/assets/img/3433812.webp')"
+  >
+    <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-10 z-10">
+      <a href="/projects" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Projects</a>
+      <a href="/writings" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Writings</a>
+      <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">About</a>
     </nav>
 
-    <!-- PAGE CONTENT STARTS HERE! -->
-    <!-- THIS IS HEADER -->
-    <header>
-      <div>
-        <a href="/">
-          <h1>Bimbel Muda</h1>
-        </a>
-      </div>
+    <header class="pt-14 px-8">
+      <a href="/" class="inline-block">
+        <h1 class="text-5xl font-poppins font-semibold text-black">Bimbel Muda</h1>
+      </a>
     </header>
 
-    <!-- THIS IS MAIN -->
-    <main>
-      <div id="resume" class="container">
-        <h2>About Me</h2>
-        <section id="work-experiences">
-          <h4>work-experiences</h4>
-          <div
-            style="
-              display: grid;
-              grid-template: auto auto / 0.8fr 1fr;
-              gap: 10px;
-              padding: 0.7rem;
-              background-color: rgba(250, 255, 253, 0.438);
-              border-radius: 10px;
-            "
-          >
-            <div>
-              <p>
-                <strong>Badan Pengelola Keuangan dan Aset</strong><br />Data and
-                Information Engineer<br /><br />01/2025 - Current
-              </p>
-            </div>
+    <main class="flex flex-1 flex-col px-8 py-6">
+      <div class="max-w-3xl mx-auto w-full flex flex-col gap-6">
+        <h2 class="text-2xl font-poppins font-semibold">About Me</h2>
 
-            <div>
-              <ul>
-                <li>
-                  Manage the utilization of information technology within the
-                  organization.
-                </li>
-                <li>
-                  Manage public information and data through official websites
-                  or online portals.
-                </li>
-                <li>
-                  Execute and report additional tasks as assigned by supervisors
-                  in accordance with organizational functions.
-                </li>
+        <section class="bg-white/40 backdrop-blur-sm rounded-2xl p-6">
+          <h4 class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500 mb-4">Work Experience</h4>
+          <div class="flex flex-col gap-5">
+
+            <div class="grid grid-cols-[1fr_2fr] gap-4">
+              <div>
+                <p class="font-semibold text-sm leading-snug">Badan Pengelola Keuangan dan Aset</p>
+                <p class="text-sm text-gray-600">Data and Information Engineer</p>
+                <p class="text-xs text-gray-400 mt-1">01/2025 — Current</p>
+              </div>
+              <ul class="text-sm text-gray-700 leading-relaxed list-disc list-inside space-y-1">
+                <li>Manage the utilization of information technology within the organization.</li>
+                <li>Manage public information and data through official websites or online portals.</li>
+                <li>Execute and report additional tasks as assigned by supervisors.</li>
               </ul>
             </div>
 
-            <div>
-              <p>
-                <strong>Badan Pengelola Keuangan dan Aset</strong><br />Asset
-                Management<br /><br />01/2021 - 12/2024
-              </p>
-            </div>
+            <hr class="border-gray-200" />
 
-            <div>
-              <ul>
-                <li>
-                  Worked together with the team to manage assets in the company
-                  such as fixed asset and inventory.
-                </li>
-                <li>
-                  Worked individually to prepare all of the necessary reports
-                  monthly, such as inventory purchase, inventory usage, etc.
-                </li>
-                <li>
-                  Assisted other team with working and processing data and
-                  preparing it until it's ready to be used.
-                </li>
+            <div class="grid grid-cols-[1fr_2fr] gap-4">
+              <div>
+                <p class="font-semibold text-sm leading-snug">Badan Pengelola Keuangan dan Aset</p>
+                <p class="text-sm text-gray-600">Asset Management</p>
+                <p class="text-xs text-gray-400 mt-1">01/2021 — 12/2024</p>
+              </div>
+              <ul class="text-sm text-gray-700 leading-relaxed list-disc list-inside space-y-1">
+                <li>Managed fixed assets and inventory together with the team.</li>
+                <li>Prepared monthly reports: inventory purchase, inventory usage, and more.</li>
+                <li>Assisted other teams with data processing and preparation.</li>
               </ul>
             </div>
 
-            <div>
-              <p>
-                <strong>Freelance Online Course</strong
-                ><br />Tutor<br /><br />01/2020 - 01/2024
-              </p>
-            </div>
+            <hr class="border-gray-200" />
 
-            <div>
-              <ul>
-                <li>
-                  Started an online course during COVID-19 due to high demand
-                  from accounting students in Indonesia.
-                </li>
-                <li>
-                  Lessons that I provide such as Financial Accounting,
-                  Intermediate Accounting, Microeconomics, and Macroeconomics.
-                </li>
+            <div class="grid grid-cols-[1fr_2fr] gap-4">
+              <div>
+                <p class="font-semibold text-sm leading-snug">Freelance Online Course</p>
+                <p class="text-sm text-gray-600">Tutor</p>
+                <p class="text-xs text-gray-400 mt-1">01/2020 — 01/2024</p>
+              </div>
+              <ul class="text-sm text-gray-700 leading-relaxed list-disc list-inside space-y-1">
+                <li>Started an online course during COVID-19 to meet high demand from accounting students.</li>
+                <li>Taught Financial Accounting, Intermediate Accounting, Microeconomics, and Macroeconomics.</li>
               </ul>
             </div>
+
           </div>
         </section>
 
-        <section id="skill">
-          <h4>skill</h4>
-          <div
-            style="
-              display: grid;
-              grid-template: auto / 1fr 1fr;
-              gap: 10px;
-              padding: 0.7rem;
-              background-color: rgba(250, 255, 253, 0.438);
-              border-radius: 10px;
-            "
-          >
-            <div>
-              <ul>
-                <li>Accounting</li>
-                <li>Python</li>
-                <li>Financing</li>
-                <li>Budgeting</li>
-              </ul>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-            <div>
-              <ul>
-                <li>Microsoft Excel</li>
-                <li>Matplotlib</li>
-                <li>Pandas</li>
-                <li>Numpy</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+          <section class="bg-white/40 backdrop-blur-sm rounded-2xl p-6">
+            <h4 class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500 mb-4">Skills</h4>
+            <ul class="grid grid-cols-2 gap-2 text-sm text-gray-700">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Accounting</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Microsoft Excel</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Python</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Matplotlib</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Financing</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Pandas</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Budgeting</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Numpy</li>
+            </ul>
+          </section>
 
-        <section id="certification">
-          <h4>certification</h4>
-          <div
-            style="
-              display: grid;
-              grid-template: auto / 1fr 1fr;
-              gap: 10px;
-              padding: 0.7rem;
-              background-color: rgba(250, 255, 253, 0.438);
-              border-radius: 10px;
-            "
-          >
-            <div>
-              <p>09/2023</p>
-            </div>
+          <section class="bg-white/40 backdrop-blur-sm rounded-2xl p-6">
+            <h4 class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500 mb-4">Certifications</h4>
+            <ul class="flex flex-col gap-3 text-sm">
+              <li>
+                <p class="font-semibold text-gray-800">Brevet Pajak C: Tax Course</p>
+                <p class="text-gray-500 text-xs">Universitas Gadjah Mada · 09/2023</p>
+              </li>
+              <li>
+                <p class="font-semibold text-gray-800">Brevet Pajak AB: Tax Course</p>
+                <p class="text-gray-500 text-xs">Universitas Gadjah Mada · 07/2023</p>
+              </li>
+              <li>
+                <p class="font-semibold text-gray-800">Learn SQL Course</p>
+                <p class="text-gray-500 text-xs">Codecademy · 03/2023</p>
+              </li>
+              <li>
+                <p class="font-semibold text-gray-800">Learn Python Course</p>
+                <p class="text-gray-500 text-xs">Codecademy · 02/2023</p>
+              </li>
+            </ul>
+          </section>
 
-            <div>
-              <p>
-                <strong>Brevet Pajak C: Tax Course</strong><br />Universitas
-                Gadjah Mada
-              </p>
-            </div>
-
-            <div>
-              <p>07/2023</p>
-            </div>
-
-            <div>
-              <p>
-                <strong>Brevet Pajak AB: Tax Course</strong><br />Universitas
-                Gadjah Mada
-              </p>
-            </div>
-
-            <div>
-              <p>03/2023</p>
-            </div>
-
-            <div>
-              <p><strong>Learn SQL Course</strong><br />Codecademy</p>
-            </div>
-
-            <div>
-              <p>02/2023</p>
-            </div>
-
-            <div>
-              <p><strong>Learn Python Course</strong><br />Codecademy</p>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
     </main>
 
-    <!-- THIS IS FOOTER -->
-    <footer id="footer" class="text-center">
-      <div>
-        <h6>This is freakin' footer.</h6>
-      </div>
+    <footer class="bg-gray-200/80 text-center py-3 text-xs text-gray-600">
+      &copy; 2026 Bimbel Muda
     </footer>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

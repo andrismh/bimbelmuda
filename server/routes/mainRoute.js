@@ -1,23 +1,24 @@
-// routes/index.js
 import { Router } from "express";
-const mainRouter = Router();
 import {
   getHomePage,
   getProjectsPage,
   getWritingsPage,
+  getPostPage,
   getCreatePostPage,
   getAboutPage,
   taxcalculator,
-  formspj
+  formspj,
 } from "../controllers/mainController.js";
+
+const mainRouter = Router();
 
 mainRouter.get("/", getHomePage);
 mainRouter.get("/projects", getProjectsPage);
 mainRouter.get("/writings", getWritingsPage);
+mainRouter.get("/writings/post", getPostPage);
 mainRouter.get("/createPost", getCreatePostPage);
 mainRouter.get("/about", getAboutPage);
 mainRouter.get("/projects/taxcalculator", taxcalculator);
 mainRouter.get("/projects/formspj", formspj);
-
 
 export default mainRouter;

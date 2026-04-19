@@ -3,36 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bimbel Muda</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <title>Form SPJ 2026 — Bimbel Muda</title>
     <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/form-spj.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <!-- NAV STARTS HERE! -->
-    <nav id="navbar" class="navMenu">
-      <a href="/projects">Projects</a>
-      <a href="/writings">Writings</a>
-      <a href="/about">About</a>
-      <div class="dot"></div>
+  <body
+    class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/assets/img/3433812.webp')"
+  >
+    <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-10 z-10">
+      <a href="/projects" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Projects</a>
+      <a href="/writings" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Writings</a>
+      <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">About</a>
     </nav>
 
-    <!-- PAGE CONTENT STARTS HERE! -->
-    <!-- THIS IS HEADER -->
-    <header>
-      <div>
-        <a href="/">
-          <h1>Bimbel Muda</h1>
-        </a>
-      </div>
+    <header class="pt-14 px-8">
+      <a href="/" class="inline-block">
+        <h1 class="text-5xl font-poppins font-semibold text-black">Bimbel Muda</h1>
+      </a>
     </header>
 
-    <!-- THIS IS MAIN -->
-    <main>
-      <div class="main-container">
+    <main class="flex flex-1 items-center justify-center p-8">
+      <div class="inline-flex flex-col justify-center bg-white/20 backdrop-blur-sm rounded-2xl p-8 gap-4">
         <form id="formRekapSPJ">
           <fieldset id="rekapSPJ">
             <legend>Form SPJ 2026</legend>
@@ -41,17 +34,11 @@
               <select id="selectBidang">
                 <option value="">---Pilih Bidang---</option>
                 <option value="Sekretariat">Sekretariat</option>
-                <option value="Bina Administrasi Keuangan Daerah">
-                  Bina Administrasi Keuangan Daerah
-                </option>
+                <option value="Bina Administrasi Keuangan Daerah">Bina Administrasi Keuangan Daerah</option>
                 <option value="Akuntansi">Akuntansi</option>
                 <option value="Anggaran Belanja">Anggaran Belanja</option>
-                <option value="Pengelola Kas Daerah">
-                  Pengelola Kas Daerah
-                </option>
-                <option value="Pengelola Barang Daerah">
-                  Pengelola Barang Daerah
-                </option>
+                <option value="Pengelola Kas Daerah">Pengelola Kas Daerah</option>
+                <option value="Pengelola Barang Daerah">Pengelola Barang Daerah</option>
                 <option value="Anggaran Pendapatan">Anggaran Pendapatan</option>
               </select>
             </section>
@@ -93,19 +80,10 @@
       </div>
     </main>
 
-    <!-- THIS IS FOOTER -->
-    <footer id="footer" class="text-center">
-      <div>
-        <h6>This is freakin' footer.</h6>
-      </div>
+    <footer class="bg-gray-200/80 text-center py-3 text-xs text-gray-600">
+      &copy; 2026 Bimbel Muda
     </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/form-spj.js"></script>
+    <script src="/js/form-spj.js"></script>
   </body>
 </html>
