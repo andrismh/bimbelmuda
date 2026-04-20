@@ -8,13 +8,13 @@
   </head>
 
   <body
-    class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+    class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat bg-fixed text-gray-800"
     style="background-image: url('/assets/img/3433812.webp')"
   >
     <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-10 z-10">
       <a href="/projects" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Projects</a>
       <a href="/writings" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Writings</a>
-      <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">About</a>
+      <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest underline decoration-2 underline-offset-8 decoration-sky-400">About</a>
     </nav>
 
     <header class="pt-14 px-8">
@@ -23,102 +23,169 @@
       </a>
     </header>
 
-    <main class="flex flex-1 flex-col px-8 py-6">
-      <div class="max-w-3xl mx-auto w-full flex flex-col gap-6">
-        <h2 class="text-2xl font-poppins font-semibold">About Me</h2>
+    <main class="flex flex-1 flex-col px-6 sm:px-8 py-10">
+      <div class="max-w-4xl mx-auto w-full flex flex-col gap-8">
 
-        <section class="bg-white/40 backdrop-blur-sm rounded-2xl p-6">
-          <h4 class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500 mb-4">Work Experience</h4>
-          <div class="flex flex-col gap-5">
-
-            <div class="grid grid-cols-[1fr_2fr] gap-4">
-              <div>
-                <p class="font-semibold text-sm leading-snug">Badan Pengelola Keuangan dan Aset</p>
-                <p class="text-sm text-gray-600">Data and Information Engineer</p>
-                <p class="text-xs text-gray-400 mt-1">01/2025 — Current</p>
-              </div>
-              <ul class="text-sm text-gray-700 leading-relaxed list-disc list-inside space-y-1">
-                <li>Manage the utilization of information technology within the organization.</li>
-                <li>Manage public information and data through official websites or online portals.</li>
-                <li>Execute and report additional tasks as assigned by supervisors.</li>
-              </ul>
-            </div>
-
-            <hr class="border-gray-200" />
-
-            <div class="grid grid-cols-[1fr_2fr] gap-4">
-              <div>
-                <p class="font-semibold text-sm leading-snug">Badan Pengelola Keuangan dan Aset</p>
-                <p class="text-sm text-gray-600">Asset Management</p>
-                <p class="text-xs text-gray-400 mt-1">01/2021 — 12/2024</p>
-              </div>
-              <ul class="text-sm text-gray-700 leading-relaxed list-disc list-inside space-y-1">
-                <li>Managed fixed assets and inventory together with the team.</li>
-                <li>Prepared monthly reports: inventory purchase, inventory usage, and more.</li>
-                <li>Assisted other teams with data processing and preparation.</li>
-              </ul>
-            </div>
-
-            <hr class="border-gray-200" />
-
-            <div class="grid grid-cols-[1fr_2fr] gap-4">
-              <div>
-                <p class="font-semibold text-sm leading-snug">Freelance Online Course</p>
-                <p class="text-sm text-gray-600">Tutor</p>
-                <p class="text-xs text-gray-400 mt-1">01/2020 — 01/2024</p>
-              </div>
-              <ul class="text-sm text-gray-700 leading-relaxed list-disc list-inside space-y-1">
-                <li>Started an online course during COVID-19 to meet high demand from accounting students.</li>
-                <li>Taught Financial Accounting, Intermediate Accounting, Microeconomics, and Macroeconomics.</li>
-              </ul>
-            </div>
-
-          </div>
+        <!-- Intro / Headline -->
+        <section class="flex flex-col gap-3">
+          <span class="text-xs font-poppins font-semibold uppercase tracking-[0.3em] text-sky-700/80">About Me</span>
+          <h2 class="text-3xl sm:text-4xl font-poppins font-semibold text-black leading-tight">
+            Accountant turned data tinkerer.
+          </h2>
+          <p class="text-gray-700 leading-relaxed max-w-2xl">
+            Four years of hands-on finance work — asset management, budgeting, taxation — now
+            folded into a growing focus on Python, data science, and building small tools that
+            make numbers easier to live with.
+          </p>
         </section>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Work Experience -->
+        <section class="bg-white/50 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-sm ring-1 ring-white/60 hover:shadow-md transition-shadow">
+          <div class="flex items-baseline justify-between mb-6">
+            <h3 class="text-xs font-poppins font-semibold uppercase tracking-[0.25em] text-gray-500">Work Experience</h3>
+            <span class="text-[10px] uppercase tracking-widest text-gray-400">2020 — now</span>
+          </div>
 
-          <section class="bg-white/40 backdrop-blur-sm rounded-2xl p-6">
-            <h4 class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500 mb-4">Skills</h4>
-            <ul class="grid grid-cols-2 gap-2 text-sm text-gray-700">
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Accounting</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Microsoft Excel</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Python</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Matplotlib</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Financing</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Pandas</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Budgeting</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>Numpy</li>
-            </ul>
+          <ol class="relative border-l-2 border-sky-200/70 ml-2 flex flex-col gap-8">
+
+            <li class="pl-6 relative">
+              <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white ring-2 ring-sky-400"></span>
+              <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-6">
+                <div>
+                  <p class="font-poppins font-semibold text-sm text-black leading-snug">Badan Pengelola Keuangan dan Aset</p>
+                  <p class="text-sm text-gray-700">Data and Information Engineer</p>
+                  <p class="text-[11px] uppercase tracking-wider text-sky-700/80 mt-1 font-semibold">01/2025 — Current</p>
+                </div>
+                <ul class="text-sm text-gray-700 leading-relaxed space-y-1.5">
+                  <li class="flex gap-2"><span class="text-sky-500 mt-1.5 w-1 h-1 rounded-full bg-sky-500 shrink-0"></span>Manage the utilization of information technology within the organization.</li>
+                  <li class="flex gap-2"><span class="text-sky-500 mt-1.5 w-1 h-1 rounded-full bg-sky-500 shrink-0"></span>Manage public information and data through official websites or online portals.</li>
+                  <li class="flex gap-2"><span class="text-sky-500 mt-1.5 w-1 h-1 rounded-full bg-sky-500 shrink-0"></span>Execute and report additional tasks as assigned by supervisors.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="pl-6 relative">
+              <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white ring-2 ring-sky-400"></span>
+              <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-6">
+                <div>
+                  <p class="font-poppins font-semibold text-sm text-black leading-snug">Badan Pengelola Keuangan dan Aset</p>
+                  <p class="text-sm text-gray-700">Asset Management</p>
+                  <p class="text-[11px] uppercase tracking-wider text-gray-500 mt-1 font-semibold">01/2021 — 12/2024</p>
+                </div>
+                <ul class="text-sm text-gray-700 leading-relaxed space-y-1.5">
+                  <li class="flex gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>Managed fixed assets and inventory together with the team.</li>
+                  <li class="flex gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>Prepared monthly reports: inventory purchase, inventory usage, and more.</li>
+                  <li class="flex gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>Assisted other teams with data processing and preparation.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="pl-6 relative">
+              <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white ring-2 ring-sky-400"></span>
+              <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-6">
+                <div>
+                  <p class="font-poppins font-semibold text-sm text-black leading-snug">Freelance Online Course</p>
+                  <p class="text-sm text-gray-700">Tutor</p>
+                  <p class="text-[11px] uppercase tracking-wider text-gray-500 mt-1 font-semibold">01/2020 — 01/2024</p>
+                </div>
+                <ul class="text-sm text-gray-700 leading-relaxed space-y-1.5">
+                  <li class="flex gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>Started an online course during COVID-19 to meet high demand from accounting students.</li>
+                  <li class="flex gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>Taught Financial Accounting, Intermediate Accounting, Microeconomics, and Macroeconomics.</li>
+                </ul>
+              </div>
+            </li>
+
+          </ol>
+        </section>
+
+        <!-- Skills + Certifications -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <section class="bg-white/50 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-sm ring-1 ring-white/60 hover:shadow-md transition-shadow">
+            <div class="flex items-baseline justify-between mb-5">
+              <h3 class="text-xs font-poppins font-semibold uppercase tracking-[0.25em] text-gray-500">Skills</h3>
+              <span class="text-[10px] uppercase tracking-widest text-gray-400">8</span>
+            </div>
+
+            <div class="flex flex-col gap-4">
+              <div>
+                <p class="text-[11px] font-poppins font-semibold uppercase tracking-wider text-sky-700/80 mb-2">Finance</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-3 py-1 rounded-full bg-white/70 text-xs text-gray-800 ring-1 ring-gray-200 hover:ring-sky-300 hover:bg-white transition">Accounting</span>
+                  <span class="px-3 py-1 rounded-full bg-white/70 text-xs text-gray-800 ring-1 ring-gray-200 hover:ring-sky-300 hover:bg-white transition">Financing</span>
+                  <span class="px-3 py-1 rounded-full bg-white/70 text-xs text-gray-800 ring-1 ring-gray-200 hover:ring-sky-300 hover:bg-white transition">Budgeting</span>
+                  <span class="px-3 py-1 rounded-full bg-white/70 text-xs text-gray-800 ring-1 ring-gray-200 hover:ring-sky-300 hover:bg-white transition">Microsoft Excel</span>
+                </div>
+              </div>
+
+              <div>
+                <p class="text-[11px] font-poppins font-semibold uppercase tracking-wider text-sky-700/80 mb-2">Data & Code</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-3 py-1 rounded-full bg-sky-500/10 text-xs text-sky-800 ring-1 ring-sky-200 hover:ring-sky-400 hover:bg-sky-500/20 transition">Python</span>
+                  <span class="px-3 py-1 rounded-full bg-sky-500/10 text-xs text-sky-800 ring-1 ring-sky-200 hover:ring-sky-400 hover:bg-sky-500/20 transition">Pandas</span>
+                  <span class="px-3 py-1 rounded-full bg-sky-500/10 text-xs text-sky-800 ring-1 ring-sky-200 hover:ring-sky-400 hover:bg-sky-500/20 transition">Numpy</span>
+                  <span class="px-3 py-1 rounded-full bg-sky-500/10 text-xs text-sky-800 ring-1 ring-sky-200 hover:ring-sky-400 hover:bg-sky-500/20 transition">Matplotlib</span>
+                </div>
+              </div>
+            </div>
           </section>
 
-          <section class="bg-white/40 backdrop-blur-sm rounded-2xl p-6">
-            <h4 class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500 mb-4">Certifications</h4>
-            <ul class="flex flex-col gap-3 text-sm">
-              <li>
-                <p class="font-semibold text-gray-800">Brevet Pajak C: Tax Course</p>
-                <p class="text-gray-500 text-xs">Universitas Gadjah Mada · 09/2023</p>
+          <section class="bg-white/50 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-sm ring-1 ring-white/60 hover:shadow-md transition-shadow">
+            <div class="flex items-baseline justify-between mb-5">
+              <h3 class="text-xs font-poppins font-semibold uppercase tracking-[0.25em] text-gray-500">Certifications</h3>
+              <span class="text-[10px] uppercase tracking-widest text-gray-400">4</span>
+            </div>
+
+            <ul class="flex flex-col divide-y divide-gray-200/70">
+              <li class="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-4 group">
+                <div>
+                  <p class="font-poppins font-semibold text-sm text-black group-hover:text-sky-700 transition-colors">Brevet Pajak C: Tax Course</p>
+                  <p class="text-xs text-gray-500">Universitas Gadjah Mada</p>
+                </div>
+                <span class="text-[11px] font-semibold tracking-wider text-gray-500 whitespace-nowrap">09 / 2023</span>
               </li>
-              <li>
-                <p class="font-semibold text-gray-800">Brevet Pajak AB: Tax Course</p>
-                <p class="text-gray-500 text-xs">Universitas Gadjah Mada · 07/2023</p>
+              <li class="py-3 flex items-start justify-between gap-4 group">
+                <div>
+                  <p class="font-poppins font-semibold text-sm text-black group-hover:text-sky-700 transition-colors">Brevet Pajak AB: Tax Course</p>
+                  <p class="text-xs text-gray-500">Universitas Gadjah Mada</p>
+                </div>
+                <span class="text-[11px] font-semibold tracking-wider text-gray-500 whitespace-nowrap">07 / 2023</span>
               </li>
-              <li>
-                <p class="font-semibold text-gray-800">Learn SQL Course</p>
-                <p class="text-gray-500 text-xs">Codecademy · 03/2023</p>
+              <li class="py-3 flex items-start justify-between gap-4 group">
+                <div>
+                  <p class="font-poppins font-semibold text-sm text-black group-hover:text-sky-700 transition-colors">Learn SQL Course</p>
+                  <p class="text-xs text-gray-500">Codecademy</p>
+                </div>
+                <span class="text-[11px] font-semibold tracking-wider text-gray-500 whitespace-nowrap">03 / 2023</span>
               </li>
-              <li>
-                <p class="font-semibold text-gray-800">Learn Python Course</p>
-                <p class="text-gray-500 text-xs">Codecademy · 02/2023</p>
+              <li class="py-3 last:pb-0 flex items-start justify-between gap-4 group">
+                <div>
+                  <p class="font-poppins font-semibold text-sm text-black group-hover:text-sky-700 transition-colors">Learn Python Course</p>
+                  <p class="text-xs text-gray-500">Codecademy</p>
+                </div>
+                <span class="text-[11px] font-semibold tracking-wider text-gray-500 whitespace-nowrap">02 / 2023</span>
               </li>
             </ul>
           </section>
 
         </div>
+
+        <!-- Closing CTA -->
+        <section class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-black/80 text-white rounded-2xl px-6 sm:px-8 py-6 shadow-lg">
+          <div>
+            <p class="font-poppins font-semibold text-base">Want to see what I've been building?</p>
+            <p class="text-sm text-gray-300">Small tools, notes, and experiments — all in one place.</p>
+          </div>
+          <div class="flex gap-3">
+            <a href="/projects" class="px-5 py-2 bg-white text-black text-sm rounded-full font-poppins hover:bg-sky-400 hover:text-white transition-colors">Projects</a>
+            <a href="/writings" class="px-5 py-2 border border-white/60 text-white text-sm rounded-full font-poppins hover:bg-white hover:text-black transition-colors">Writings</a>
+          </div>
+        </section>
+
       </div>
     </main>
 
-    <footer class="bg-gray-200/80 text-center py-3 text-xs text-gray-600">
+    <footer class="bg-gray-200/80 text-center py-3 text-xs text-gray-600 mt-8">
       &copy; 2026 Bimbel Muda
     </footer>
   </body>
