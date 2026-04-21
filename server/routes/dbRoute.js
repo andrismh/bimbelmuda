@@ -6,6 +6,7 @@ import {
   getPostBySlug,
   getPostTitles,
   getRenderedPost,
+  getRenderedPostBySlug,
   updatePost,
   deletePost,
 } from "../controllers/dbController.js";
@@ -25,6 +26,7 @@ const updateValidators = [
 
 // order matters: specific routes before parameterized ones
 dbRouter.get("/api/posts/paginated", listPosts);
+dbRouter.get("/api/posts/slug/:slug/rendered", getRenderedPostBySlug);
 dbRouter.get("/api/posts/slug/:slug", getPostBySlug);
 dbRouter.get("/api/titles", getPostTitles);
 dbRouter.post("/api/posts", createValidators, createPost);

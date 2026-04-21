@@ -2,11 +2,11 @@
   const container = document.getElementById("post-content");
 
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const slug = params.get("slug");
 
-  if (!id) {
+  if (!slug) {
     container.innerHTML =
-      '<p class="text-red-500 text-center py-12">No post ID provided.</p>';
+      '<p class="text-red-500 text-center py-12">No post specified.</p>';
     return;
   }
 
@@ -22,15 +22,10 @@
   }
 
   try {
-    // Fetch post metadata and server-rendered HTML in parallel
-    const [postRes, renderedRes] = await Promise.all([
-      fetch(`/api/posts/${id}`),
-      fetch(`/api/posts/${id}/rendered`),
-    ]);
-
-    if (!postRes.ok) throw new Error(`HTTP ${postRes.status}`);
-    const post = await postRes.json();
-    const { renderedContent } = await renderedRes.json();
+    // Single request returns both post metadata and rendered HTML
+    const res = await fetch(`/api/posts/slug/${slug}/rendered`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const { post, renderedContent } = await res.json();
 
     const date = post.publishedAt
       ? new Date(post.publishedAt).toLocaleDateString("en-GB", {

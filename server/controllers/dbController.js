@@ -118,6 +118,17 @@ export const getRenderedPost = async (req, res, next) => {
   }
 };
 
+export const getRenderedPostBySlug = async (req, res, next) => {
+  try {
+    const post = await Post.findOne({ slug: req.params.slug }).lean();
+    if (!post) return res.status(404).json({ message: "Not found" });
+    const renderedContent = await renderMarkdown(post.content);
+    res.json({ post, renderedContent });
+  } catch (err) {
+    next(err);
+  }
+};
+
 export async function getPostTitles(req, res, next) {
   try {
     const posts = await Post.find({}, { _id: 1, title: 1, content: 1, excerpt: 1, createdAt: 1 }).lean();

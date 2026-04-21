@@ -34,7 +34,7 @@
           .join("");
 
         const card = document.createElement("a");
-        card.href = `/writings/post?id=${post._id}`;
+        card.href = `/writings/post?slug=${post.slug}`;
         card.className = "block bg-gradient-to-bl from-[#e0e4e5] to-[#f2f6f9] rounded-2xl p-8 shadow-[inset_-2px_2px_rgba(255,255,255,1),-20px_20px_40px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:shadow-[inset_-2px_2px_rgba(255,255,255,1),-30px_30px_60px_rgba(0,0,0,0.35),0_8px_20px_rgba(120,180,255,0.25)] transition-all duration-500 cursor-pointer flex flex-col gap-3";
         card.innerHTML = `
           <div class="flex flex-col gap-1 flex-1">
