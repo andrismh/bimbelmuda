@@ -92,6 +92,13 @@
   height: 400px;
 }
 
+@media (max-width: 640px) {
+  .notebook-content .plotly-chart {
+    height: 260px;
+    border-radius: 8px;
+  }
+}
+
 /* ── Notebook content: prose overrides for shiki blocks ── */
 .notebook-content .shiki {
   border-radius: 8px;

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Writings — Bimbel Muda</title>
+    <link rel="icon" type="image/png" href="/assets/img/bimbelmuda_logo.png" />
     <link href="/css/style.css" rel="stylesheet" />
   </head>
 
@@ -11,23 +12,23 @@
     class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
     style="background-image: url('/assets/img/3433812.webp')"
   >
-    <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-10 z-10">
+    <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-5 sm:gap-10 z-10">
       <a href="/projects" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Projects</a>
       <a href="/writings" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Writings</a>
       <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">About</a>
     </nav>
 
-    <header class="pt-14 px-8">
+    <header class="pt-14 px-4 sm:px-8">
       <a href="/" class="inline-block">
-        <h1 class="text-5xl font-poppins font-semibold text-black">Bimbel Muda</h1>
+        <h1 class="text-3xl sm:text-5xl font-poppins font-semibold text-black">Bimbel Muda</h1>
       </a>
     </header>
 
-    <main class="flex flex-1 flex-col px-8 py-6">
+    <main class="flex flex-1 flex-col px-4 sm:px-8 py-6">
       <div class="max-w-6xl mx-auto w-full">
-        <div class="flex items-center justify-between mb-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
           <h2 class="text-2xl font-poppins font-semibold">Writings</h2>
-          <a href="/createPost" class="px-4 py-2 bg-black text-white text-sm rounded-full font-poppins hover:bg-gray-800 transition-colors">+ New Post</a>
+          <a href="/createPost" class="px-4 py-2.5 bg-black text-white text-sm rounded-full font-poppins hover:bg-gray-800 transition-colors">+ New Post</a>
         </div>
 
         <div id="post-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,42 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bimbel Muda</title>
+    <link rel="icon" type="image/png" href="/assets/img/bimbelmuda_logo.png" />
     <link href="/css/style.css" rel="stylesheet" />
   </head>
 
   <body
     class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
-    style="background-image: url('/assets/img/3433812.webp')"
+    style="background-image: url(&quot;/assets/img/3433812.webp&quot;)"
   >
-    <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-10 z-10">
-      <a href="/projects" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Projects</a>
-      <a href="/writings" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Writings</a>
-      <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">About</a>
+    <nav
+      class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-5 sm:gap-10 z-10"
+    >
+      <a
+        href="/projects"
+        class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors"
+        >Projects</a
+      >
+      <a
+        href="/writings"
+        class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors"
+        >Writings</a
+      >
+      <a
+        href="/about"
+        class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors"
+        >About</a
+      >
     </nav>
 
-    <header class="pt-14 px-8">
+    <header class="pt-14 px-4 sm:px-8">
       <a href="/" class="inline-block">
-        <h1 class="text-5xl font-poppins font-semibold text-black">Bimbel Muda</h1>
+        <h1 class="text-3xl sm:text-5xl font-poppins font-semibold text-black">
+          Bimbel Muda
+        </h1>
       </a>
     </header>
 
-    <main class="flex flex-1 items-center justify-center p-8">
-      <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-10 max-w-xl w-full shadow-xl">
+    <main class="flex flex-1 items-center justify-center p-4 sm:p-8">
+      <div
+        class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 sm:p-10 max-w-xl w-full shadow-xl"
+      >
         <h2 class="text-2xl font-semibold font-poppins mb-4">welcome.</h2>
         <p class="text-gray-800 leading-relaxed">
-          hi! I'm mooda, an
-          <strong>accountant with 4+ years of experience</strong> in budgeting,
-          asset management, taxation, and other finance-related work.<br /><br />
-          Highly motivated to learn and continuously upskill, particularly in the field
-          of Python programming with a strong focus on
-          <strong>Data Science and Machine Learning</strong>.
+          Hi! I'm Muda, accountant with
+          <strong
+            >5 years of experience in budgeting, bookkeeping, and financial
+            reporting</strong
+          >, along with strong
+          <strong>full-stack development and data science</strong> capabilities.
+          Adept at leveraging Python (including Pandas and machine learning
+          frameworks), SQL databases, and backend tools to automate complex
+          financial processes and build predictive models.<br /><br />
+          Proven ability to bridge the gap between traditional finance and
+          modern technical solutions, bringing dynamic
+          <strong>problem-solving and operational efficiency</strong> to
+          data-driven organization
         </p>
-        <div class="mt-6 flex gap-4">
-          <a href="/writings" class="px-5 py-2 bg-black text-white text-sm rounded-full font-poppins hover:bg-gray-800 transition-colors">Read Writings</a>
-          <a href="/projects" class="px-5 py-2 border border-black text-black text-sm rounded-full font-poppins hover:bg-black hover:text-white transition-colors">See Projects</a>
+        <div class="mt-6 flex gap-3 flex-wrap">
+          <a
+            href="/writings"
+            class="px-5 py-3 bg-black text-white text-sm rounded-full font-poppins hover:bg-gray-800 transition-colors"
+            >Read Writings</a
+          >
+          <a
+            href="/projects"
+            class="px-5 py-3 border border-black text-black text-sm rounded-full font-poppins hover:bg-black hover:text-white transition-colors"
+            >See Projects</a
+          >
         </div>
       </div>
     </main>

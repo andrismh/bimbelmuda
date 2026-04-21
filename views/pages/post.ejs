@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %> — Bimbel Muda</title>
+    <link rel="icon" type="image/png" href="/assets/img/bimbelmuda_logo.png" />
     <script src="/vendor/plotly.js"></script>
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,6 +46,16 @@
         line-height: 1.25;
         color: #111;
         margin-bottom: 0.75rem;
+      }
+
+      @media (max-width: 640px) {
+        body { padding: 1.25rem 0.75rem 3rem; }
+        .post-title { font-size: 1.5rem; }
+        .prose h1 { font-size: 1.35rem; }
+        .prose h2 { font-size: 1.15rem; }
+        .prose h3 { font-size: 1rem; }
+        .prose { font-size: 0.97rem; }
+        .prose .shiki { font-size: 0.8rem; padding: 1em; }
       }
 
       .post-meta {
