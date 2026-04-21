@@ -22,6 +22,7 @@ app.use(morgan("dev"));
 
 // static
 app.use(express.static(path.join(__dirname, "..", "public")));
+app.use("/vendor/plotly.js", express.static(path.join(__dirname, "..", "node_modules", "plotly.js-dist", "plotly.js")));
 
 // parsers
 app.use(express.json());

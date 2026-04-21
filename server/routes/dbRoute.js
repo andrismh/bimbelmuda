@@ -5,6 +5,7 @@ import {
   getPosts,
   getPostBySlug,
   getPostTitles,
+  getRenderedPost,
   updatePost,
   deletePost,
 } from "../controllers/dbController.js";
@@ -28,6 +29,7 @@ dbRouter.get("/api/posts/slug/:slug", getPostBySlug);
 dbRouter.get("/api/titles", getPostTitles);
 dbRouter.post("/api/posts", createValidators, createPost);
 dbRouter.get("/api/posts", getPosts);
+dbRouter.get("/api/posts/:id/rendered", getRenderedPost);
 dbRouter.get("/api/posts/:id", getPosts);
 dbRouter.patch("/api/posts/:id", updateValidators, updatePost);
 dbRouter.delete("/api/posts/:id", deletePost);

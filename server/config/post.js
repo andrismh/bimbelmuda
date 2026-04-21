@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import slugify from "slugify";
+import { stripMarkdown } from "../utils/renderMarkdown.js";
 
 const postSchema = new mongoose.Schema(
   {
@@ -18,7 +19,7 @@ const postSchema = new mongoose.Schema(
   {
     timestamps: true,
     collection: "blogContents",
-  }
+  },
 );
 
 postSchema.pre("save", function (next) {
@@ -27,10 +28,14 @@ postSchema.pre("save", function (next) {
   }
 
   if (!this.excerpt && this.content) {
-    this.excerpt = this.content.slice(0, 150);
+    this.excerpt = stripMarkdown(this.content).slice(0, 150);
   }
 
-  if (this.isModified("status") && this.status === "published" && !this.publishedAt) {
+  if (
+    this.isModified("status") &&
+    this.status === "published" &&
+    !this.publishedAt
+  ) {
     this.publishedAt = new Date();
   }
 

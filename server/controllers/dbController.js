@@ -2,6 +2,7 @@ import { validationResult } from "express-validator";
 import Post from "../config/post.js";
 import mongoose from "mongoose";
 import slugify from "slugify";
+import { renderMarkdown } from "../utils/renderMarkdown.js";
 
 const pick = (obj, fields) => {
   const result = {};
@@ -97,6 +98,21 @@ export const deletePost = async (req, res, next) => {
     const deleted = await Post.findByIdAndDelete(id);
     if (!deleted) return res.status(404).json({ message: "Not found" });
     res.json({ message: "Post deleted", post: deleted });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const getRenderedPost = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    if (!mongoose.isValidObjectId(id)) {
+      return res.status(400).json({ message: "Invalid id" });
+    }
+    const post = await Post.findById(id).lean();
+    if (!post) return res.status(404).json({ message: "Not found" });
+    const renderedContent = await renderMarkdown(post.content);
+    res.json({ renderedContent });
   } catch (err) {
     next(err);
   }
