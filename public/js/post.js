@@ -56,7 +56,7 @@
           <div class="flex flex-wrap gap-1">${tags}</div>
         </div>
       </header>
-      <div class="prose prose-sm max-w-none text-gray-800 leading-relaxed notebook-content">${renderedContent}</div>
+      <div class="prose max-w-none text-gray-800 leading-relaxed notebook-content">${renderedContent}</div>
     `;
 
     // Only load Plotly if there are chart blocks in the rendered output
