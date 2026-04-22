@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import dbRouter from "./routes/dbRoute.js";
 import mainRouter from "./routes/mainRoute.js";
 import generatorRouter from "./routes/generatorRoute.js";
-import { connect } from "./config/db.js"; // <-- use your connect helper
+import { connect } from "./config/db.js";
 import morgan from "morgan";
 import helmet from "helmet";
 
@@ -23,6 +23,8 @@ app.use(morgan("dev"));
 // static
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use("/vendor/plotly.js", express.static(path.join(__dirname, "..", "node_modules", "plotly.js-dist", "plotly.js")));
+app.use("/vendor/easymde", express.static(path.join(__dirname, "..", "node_modules", "easymde", "dist")));
+app.use("/vendor/font-awesome", express.static(path.join(__dirname, "..", "node_modules", "font-awesome")));
 
 // parsers
 app.use(express.json());

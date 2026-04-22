@@ -12,7 +12,18 @@
     submitBtn.textContent = "Saving...";
 
     const title = document.getElementById("blogTitle").value.trim();
-    const content = document.getElementById("blogContent").value.trim();
+    const content = (window.easyMDE
+      ? window.easyMDE.value()
+      : document.getElementById("blogContent").value
+    ).trim();
+
+    if (!content) {
+      errorBox.textContent = "Content is required.";
+      errorBox.classList.remove("hidden");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Publish Post";
+      return;
+    }
     const status = document.getElementById("blogStatus").value;
     const tagsRaw = document.getElementById("blogTags").value;
     const tags = tagsRaw

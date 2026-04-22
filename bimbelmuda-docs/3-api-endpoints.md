@@ -31,6 +31,13 @@ Fetch a single post by its URL slug.
 - **Params:** `slug` — URL-friendly string (e.g. `my-post-title`)
 - **Response:** Full post document or `404`
 
+### `GET /api/posts/slug/:slug/rendered`
+Fetch a post by slug together with its server-rendered HTML (Markdown → HTML, with Shiki syntax highlighting and custom `output`/`chart` code-block handling).
+
+- **Params:** `slug`
+- **Response:** `{ "post": { ... }, "renderedContent": "<html>..." }` or `404`
+- **Used by:** [public/js/post.js](../public/js/post.js)
+
 ### `GET /api/titles`
 Lightweight endpoint returning `_id`, `title`, `content`, `excerpt`, and `createdAt` for all posts (no pagination, no status filter).
 
@@ -49,6 +56,12 @@ Fetch a single post by MongoDB ObjectID.
 
 - **Params:** `id` — 24-character hex ObjectID
 - **Response:** Full post document or `404`
+
+### `GET /api/posts/:id/rendered`
+Fetch server-rendered HTML for a post by ObjectID.
+
+- **Params:** `id`
+- **Response:** `{ "renderedContent": "<html>..." }` or `404`
 
 ### `PATCH /api/posts/:id`
 Partially update a post.

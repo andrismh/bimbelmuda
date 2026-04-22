@@ -5,37 +5,17 @@ import Post from "../config/post.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export function getHomePage(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/index.html"));
-}
+const STATIC_DIR = path.join(__dirname, "../../public/static");
+const staticPage = (rel) => (req, res) => res.sendFile(path.join(STATIC_DIR, rel));
 
-export function getProjectsPage(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/projects.html"));
-}
-
-export function getWritingsPage(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/writings.html"));
-}
-
-export function getPostPage(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/post.html"));
-}
-
-export function getCreatePostPage(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/create-post.html"));
-}
-
-export function getAboutPage(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/about.html"));
-}
-
-export function taxcalculator(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/projects/tax-calculator.html"));
-}
-
-export function formspj(req, res) {
-  res.sendFile(path.join(__dirname, "../../public/static/projects/form-spj.html"));
-}
+export const getHomePage = staticPage("index.html");
+export const getProjectsPage = staticPage("projects.html");
+export const getWritingsPage = staticPage("writings.html");
+export const getPostPage = staticPage("post.html");
+export const getCreatePostPage = staticPage("create-post.html");
+export const getAboutPage = staticPage("about.html");
+export const taxcalculator = staticPage("projects/tax-calculator.html");
+export const formspj = staticPage("projects/form-spj.html");
 
 // GET /api/posts/paginated?page=1&limit=9
 export async function listPosts(req, res, next) {

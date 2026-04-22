@@ -1,42 +1,45 @@
 # Static Site Generation (SSG)
 
-One of the application's prominent architectural choices lies in utilizing an internal **Static Site Generator**. It converts underlying backend configurations and dynamic database information natively down directly into fast static `.html` webpages utilizing EJS templates. 
+The app includes a pipeline that renders database-backed posts into static HTML files using EJS templates. Output lands in `public/generated/` and is served directly by the `express.static()` middleware.
 
-## System Core Logic
+## Core Module
 
-The overall core executes out of `server/controllers/generatorController.js`.
-The pipeline runs through these internal environment hooks:
-* **`ROOT`**: System `process.cwd()` extraction.
-* **`VIEWS_DIR`**: Extracts dynamic EJS definitions mapped to `/views`.
-* **`GENERATED_DIR`**: Defines storage output mapping directory `public/generated`. As files are written here natively, they become instantly served from the overarching `express.static()` middleware.
+All logic lives in `server/controllers/generatorController.js`. Three module-level constants scope the pipeline:
 
-## Main Functionalities
+- `ROOT` — `process.cwd()` (the project root)
+- `VIEWS_DIR` — `<ROOT>/views`, source of EJS templates
+- `GENERATED_DIR` — `<ROOT>/public/generated`, where rendered HTML is written
 
-The generator controller provides specific generator endpoints listed underneath `server/routes/generatorRoute.js`.
+## Endpoints
 
-### 1. Execute Large-Scale Generators: `generateAllPages`
-- **Path:** `POST /api/generate/all`
-- **Operations:**
-  - Queries `Post.find().sort({ createdAt: -1 })` natively fetching the full article listing directly out from MongoDB.
-  - Generates HTML page representations against each post executing through the EJS layout mechanism (`views/pages/post.ejs`).
-  - Serializes an active generated collection into `public/generated/post-{_id}.html` documents format automatically parsing internal parameters.
-  - Dynamically synthesizes an index directory map utilizing an overview EJS element via `views/pages/generated-index.ejs`. Returns its map to `public/generated/index.html`.
+Registered in `server/routes/generatorRoute.js`.
 
-### 2. Isolate Targeted Generation: `generatePostPage`
-- **Path:** `POST /api/generate/post/:id`
-- **Operations:**
-  - Executes validation directly for ID requirements mapping single document execution fetching logic, returning quick generation iterations specifically useful upon localized edit saving patterns minimizing overhead logic.
+### 1. `generateAllPages` — `POST /api/generate/all`
 
-### 3. Generate Custom Template Logic Integration: `generateCustomPage` 
-- **Path:** `POST /api/generate/custom`
-- **Requirements Structure:** Enacts specific validation schemas demanding explicit combinations:
-    - `template`: Native target parameter inside the `.ejs` architecture.
-    - `outputName`: What configuration should map to the final explicit target.
-    - `data`: (Optional) Injection JSON schema variables logic to the template core context itself.
+- Loads every post (`Post.find().sort({ createdAt: -1 })`).
+- For each post, renders Markdown to HTML via `renderMarkdown()` and passes it into `views/pages/post.ejs`. Output: `public/generated/post-<_id>.html`.
+- Also renders `views/pages/generated-index.ejs` as `public/generated/index.html`, a listing of all generated post pages.
+- Returns metadata for every generated file.
 
-### 4. Admin Management Modules
+### 2. `generatePostPage` — `POST /api/generate/post/:id`
 
-Additionally provides clean validation and control over active generated state items avoiding bloating requirements:
-- **List generated objects (`listGeneratedPages`) - `GET /api/generated`:** Verifies folder availability (`fs.readdir`), generating dynamic active size maps and date mappings context information logic directly over existing files.
-- **De-register object contexts (`deleteGeneratedPage`) - `DELETE /api/generated/:filename`:** Safely handles file `fs.unlink()` operations on mapped directories.
-- **Wipe completely (`clearAllGeneratedPages`) - `DELETE /api/generated`:** Truncates the total mapped generated HTML document listing mapping logic natively back into pure origins cleanly.
+Regenerates the single post page for `:id`. Used for incremental updates (e.g. after editing one post).
+
+### 3. `generateCustomPage` — `POST /api/generate/custom`
+
+Renders an arbitrary EJS template in `views/pages/` with caller-supplied data.
+
+- Body:
+  - `template` (required) — template name, without the `.ejs` extension
+  - `outputName` (required) — output filename stem (written as `<outputName>.html`)
+  - `data` (optional object) — variables injected into the template
+- Validation is performed by `express-validator` (`customPageValidators` in `generatorRoute.js`).
+- Returns `404` if the template file does not exist.
+
+### 4. Management endpoints
+
+- `GET /api/generated` — `listGeneratedPages`: lists every `.html` file under `GENERATED_DIR` with `size` and `lastModified`.
+- `DELETE /api/generated/:filename` — `deleteGeneratedPage`: deletes a single file.
+- `DELETE /api/generated` — `clearAllGeneratedPages`: deletes all `.html` files in `GENERATED_DIR`.
+
+See [../GENERATOR_API.md](../GENERATOR_API.md) for full request/response payload examples.

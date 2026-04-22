@@ -1,0 +1,21 @@
+.EasyMDEContainer { border-radius: 12px; }
+.EasyMDEContainer .editor-toolbar {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px 12px 0 0;
+  border-color: #e5e7eb;
+}
+.EasyMDEContainer .CodeMirror {
+  font-family: "SFMono-Regular", "Consolas", monospace;
+  font-size: 0.9rem;
+  border-radius: 0 0 12px 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-color: #e5e7eb;
+  resize: vertical;
+  overflow: auto !important;
+  min-height: 220px;
+}
+.EasyMDEContainer .CodeMirror .CodeMirror-scroll { min-height: inherit; }
+.EasyMDEContainer .editor-preview {
+  border-color: #e5e7eb;
+  border-radius: 0 0 12px 12px;
+}
