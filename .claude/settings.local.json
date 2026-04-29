@@ -10,7 +10,16 @@
       "Bash(git pull *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(xargs grep *)"
+      "Bash(xargs grep *)",
+      "Bash(npm install *)",
+      "Bash(grep -o 'fa-bold[^,{]*' d:/Projects/bimbelmuda/node_modules/easymde/dist/easymde.min.css)",
+      "Bash(grep -oE 'fa-\\(bold|italic|heading|quote|link|image|code\\)[^,}{]*{[^}]*content:[^;}]*' d:/Projects/bimbelmuda/node_modules/easymde/dist/easymde.min.css)",
+      "Bash(grep -oE '\\(bold|italic|heading-1\\)[^,}{]*:before[^}]*content:[^;}]*' d:/Projects/bimbelmuda/node_modules/easymde/dist/easymde.min.css)",
+      "Bash(node --check server/app.js)",
+      "Bash(node --check server/controllers/mainController.js)",
+      "Bash(node --check server/controllers/generatorController.js)",
+      "Bash(npm uninstall *)",
+      "Bash(git fetch *)"
     ]
   }
 }

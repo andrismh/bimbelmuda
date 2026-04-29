@@ -6,6 +6,36 @@
     <title>Post — Bimbel Muda</title>
     <link rel="icon" type="image/png" href="/assets/img/bimbelmuda_logo.png" />
     <link href="/css/style.css" rel="stylesheet" />
+    <style>
+      #post-toc { font-family: "Poppins", sans-serif; }
+      #post-toc .toc-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #9ca3af;
+        margin-bottom: 0.75rem;
+      }
+      #post-toc ul { list-style: none; padding: 0; margin: 0; }
+      #post-toc li { line-height: 1.4; }
+      #post-toc a {
+        color: #6b7280;
+        text-decoration: none;
+        font-size: 0.82rem;
+        transition: color 0.15s, border-color 0.15s;
+        display: block;
+        padding: 0.25rem 0;
+      }
+      #post-toc a:hover { color: #000; }
+      #post-toc a.active { color: #000; font-weight: 500; }
+      #post-toc .toc-h3 a {
+        padding-left: 0.75rem;
+        border-left: 2px solid #e5e7eb;
+      }
+      #post-toc .toc-h3 a:hover { border-left-color: #9ca3af; }
+      #post-toc .toc-h3 a.active { border-left-color: #000; }
+      html { scroll-behavior: smooth; }
+      .post-content :is(h1, h2, h3) { scroll-margin-top: 2rem; }
+    </style>
   </head>
 
   <body
@@ -25,12 +55,16 @@
     </header>
 
     <main class="flex flex-1 flex-col px-4 sm:px-8 py-6">
-      <div class="max-w-2xl mx-auto w-full">
-        <a href="/writings" class="text-sm text-gray-500 hover:text-black transition-colors mb-6 inline-block">← Back to Writings</a>
+      <div class="max-w-5xl mx-auto w-full lg:flex lg:gap-8 lg:items-start lg:justify-center">
+        <div class="w-full max-w-2xl mx-auto lg:mx-0">
+          <a href="/writings" class="text-sm text-gray-500 hover:text-black transition-colors mb-6 inline-block">← Back to Writings</a>
 
-        <article id="post-content" class="bg-white/40 backdrop-blur-sm rounded-2xl p-5 sm:p-8">
-          <div class="text-center text-gray-500 py-12">Loading post...</div>
-        </article>
+          <article id="post-content" class="bg-white/40 backdrop-blur-sm rounded-2xl p-5 sm:p-8 post-content">
+            <div class="text-center text-gray-500 py-12">Loading post...</div>
+          </article>
+        </div>
+
+        <aside id="post-toc" class="hidden lg:block w-56 shrink-0 sticky top-8 max-h-[calc(100vh-4rem)] overflow-y-auto"></aside>
       </div>
     </main>
 

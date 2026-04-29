@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit Post — Bimbel Muda</title>
+    <link rel="icon" type="image/png" href="/assets/img/bimbelmuda_logo.png" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/vendor/easymde/easymde.min.css" />
+    <link href="/css/create-post.css" rel="stylesheet" />
+  </head>
+
+  <body
+    class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/assets/img/3433812.webp')"
+  >
+    <nav class="absolute top-6 left-1/2 -translate-x-1/2 flex gap-5 sm:gap-10 z-10">
+      <a href="/projects" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Projects</a>
+      <a href="/writings" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">Writings</a>
+      <a href="/about" class="text-black text-sm font-semibold uppercase tracking-widest hover:text-sky-400 transition-colors">About</a>
+    </nav>
+
+    <header class="pt-14 px-4 sm:px-8">
+      <a href="/" class="inline-block">
+        <h1 class="text-3xl sm:text-5xl font-poppins font-semibold text-black">Bimbel Muda</h1>
+      </a>
+    </header>
+
+    <main class="flex flex-1 flex-col px-4 sm:px-8 py-6">
+      <div class="max-w-2xl mx-auto w-full">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-poppins font-semibold">Edit Post</h2>
+          <a href="/writings" class="text-sm text-gray-500 hover:text-black transition-colors">← Back to Writings</a>
+        </div>
+
+        <div id="form-loading" class="bg-white/40 backdrop-blur-sm rounded-2xl p-8 text-center text-gray-500">Loading post...</div>
+
+        <form id="postForm" class="hidden bg-white/40 backdrop-blur-sm rounded-2xl p-5 sm:p-8 flex-col gap-5">
+          <div class="flex flex-col gap-1">
+            <label for="blogTitle" class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500">Title</label>
+            <input
+              type="text"
+              id="blogTitle"
+              name="title"
+              placeholder="Post title..."
+              required
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="blogContent" class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500">Content</label>
+            <textarea
+              id="blogContent"
+              name="content"
+              placeholder="Write your post here..."
+              rows="12"
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition resize-y"
+            ></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1">
+              <label for="blogStatus" class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500">Status</label>
+              <select
+                id="blogStatus"
+                name="status"
+                class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition"
+              >
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label for="blogTags" class="text-xs font-poppins font-semibold uppercase tracking-widest text-gray-500">Tags</label>
+              <input
+                type="text"
+                id="blogTags"
+                name="tags"
+                placeholder="finance, python, data..."
+                class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition"
+              />
+              <p class="text-xs text-gray-400">Comma-separated</p>
+            </div>
+          </div>
+
+          <div id="form-error" class="hidden text-red-600 text-sm bg-red-50 rounded-xl px-4 py-2.5"></div>
+
+          <div class="flex justify-end gap-3">
+            <a href="/writings" class="px-5 py-2.5 border border-gray-300 text-gray-600 text-sm rounded-full font-poppins hover:bg-gray-100 transition-colors">Cancel</a>
+            <button
+              type="submit"
+              id="submit-button"
+              class="px-6 py-2.5 bg-black text-white text-sm rounded-full font-poppins hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="bg-gray-200/80 text-center py-3 text-xs text-gray-600">
+      &copy; 2026 Bimbel Muda
+    </footer>
+
+    <script src="/vendor/easymde/easymde.min.js"></script>
+    <script src="/js/create-post-editor.js"></script>
+    <script src="/js/edit-post.js" defer></script>
+  </body>
+</html>

@@ -21,6 +21,60 @@
     });
   }
 
+  function slugify(text) {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "section";
+  }
+
+  function buildToc(root) {
+    const toc = document.getElementById("post-toc");
+    if (!toc) return;
+    const headings = root.querySelectorAll("h2, h3");
+    if (headings.length < 2) return;
+
+    const used = new Map();
+    const items = [];
+    headings.forEach((h) => {
+      if (!h.id) {
+        let base = slugify(h.textContent || "");
+        let id = base;
+        const n = used.get(base) || 0;
+        if (n > 0) id = `${base}-${n}`;
+        used.set(base, n + 1);
+        h.id = id;
+      }
+      items.push({ id: h.id, text: h.textContent || "", level: h.tagName.toLowerCase() });
+    });
+
+    const list = items
+      .map((it) => `<li class="toc-${it.level}"><a href="#${it.id}" data-toc-id="${it.id}">${it.text}</a></li>`)
+      .join("");
+    toc.innerHTML = `<p class="toc-label">Contents</p><ul>${list}</ul>`;
+
+    const anchors = new Map();
+    toc.querySelectorAll("a[data-toc-id]").forEach((a) => anchors.set(a.dataset.tocId, a));
+
+    let activeId = null;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+        if (visible.length === 0) return;
+        const id = visible[0].target.id;
+        if (id === activeId) return;
+        if (activeId && anchors.get(activeId)) anchors.get(activeId).classList.remove("active");
+        if (anchors.get(id)) anchors.get(id).classList.add("active");
+        activeId = id;
+      },
+      { rootMargin: "-10% 0px -75% 0px", threshold: 0 },
+    );
+    headings.forEach((h) => observer.observe(h));
+  }
+
   try {
     // Single request returns both post metadata and rendered HTML
     const res = await fetch(`/api/posts/slug/${slug}/rendered`);
@@ -58,6 +112,8 @@
       </header>
       <div class="prose max-w-none text-gray-800 leading-relaxed notebook-content">${renderedContent}</div>
     `;
+
+    buildToc(container);
 
     // Only load Plotly if there are chart blocks in the rendered output
     const chartDivs = container.querySelectorAll(".plotly-chart[data-chart]");

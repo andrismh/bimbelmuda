@@ -13,6 +13,7 @@ export const getProjectsPage = staticPage("projects.html");
 export const getWritingsPage = staticPage("writings.html");
 export const getPostPage = staticPage("post.html");
 export const getCreatePostPage = staticPage("create-post.html");
+export const getEditPostPage = staticPage("edit-post.html");
 export const getAboutPage = staticPage("about.html");
 export const taxcalculator = staticPage("projects/tax-calculator.html");
 export const formspj = staticPage("projects/form-spj.html");

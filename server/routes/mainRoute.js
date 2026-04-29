@@ -5,6 +5,7 @@ import {
   getWritingsPage,
   getPostPage,
   getCreatePostPage,
+  getEditPostPage,
   getAboutPage,
   taxcalculator,
   formspj,
@@ -17,6 +18,7 @@ mainRouter.get("/projects", getProjectsPage);
 mainRouter.get("/writings", getWritingsPage);
 mainRouter.get("/writings/post", getPostPage);
 mainRouter.get("/createPost", getCreatePostPage);
+mainRouter.get("/editPost", getEditPostPage);
 mainRouter.get("/about", getAboutPage);
 mainRouter.get("/projects/taxcalculator", taxcalculator);
 mainRouter.get("/projects/formspj", formspj);
